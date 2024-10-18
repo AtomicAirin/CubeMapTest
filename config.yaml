@@ -1,0 +1,19 @@
+plots:
+  - title: "Plot 1"
+    description: "This is Plot 1's description."
+    coordinates:
+      - x: 100
+        y: 100
+      - x: 200
+        y: 200
+    border_color: "#FF0000"
+    fill_color: "rgba(255, 0, 0, 0.3)"
+  - title: "Plot 2"
+    description: "This is Plot 2's description."
+    coordinates:
+      - x: 300
+        y: 300
+      - x: 400
+        y: 400
+    border_color: "#00FF00"
+    fill_color: "rgba(0, 255, 0, 0.3)"
