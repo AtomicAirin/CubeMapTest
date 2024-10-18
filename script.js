@@ -14,14 +14,18 @@ async function fetchConfig() {
 // Function to fetch the sectors from sectors.yaml
 async function fetchSectors() {
     try {
-        const response = await fetch('sectors.yaml'); // Adjust this path if necessary
+        const response = await fetch('sectors.yaml');
         const text = await response.text();
-        const sectors = jsyaml.load(text); // Load YAML data
+        const sectors = jsyaml.load(text);
+
+        // Ensure sectors is an array
+        if (!Array.isArray(sectors)) {
+            throw new TypeError("Sectors is not an array");
+        }
 
         const dropdown = document.getElementById('sector-dropdown');
-        dropdown.innerHTML = ''; // Clear existing options
+        dropdown.innerHTML = '';
 
-        // Populate dropdown with sector names and URLs using for...of
         for (const sector of sectors) {
             const option = document.createElement('option');
             option.value = sector.url; // Store the URL in the value
@@ -29,36 +33,58 @@ async function fetchSectors() {
             dropdown.appendChild(option);
         }
 
-        return sectors; // Return the loaded sectors for further use
+        return sectors;
     } catch (error) {
         console.error("Error fetching sectors:", error);
     }
 }
 
+
 // Function to fetch the plots from plots.yaml
 async function fetchPlots() {
-    const response = await fetch('plots.yaml');
-    const plotsText = await response.text();
-    const plots = jsyaml.load(plotsText);
-    const grid = document.getElementById('grid');
+    try {
+        const response = await fetch('plots.yaml');
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
-    plots.forEach(plot => {
-        const plotDiv = document.createElement('div');
-        plotDiv.className = 'plot';
-        plotDiv.style.borderColor = plot.borderColor;
-        plotDiv.style.backgroundColor = plot.fillColor + '4D'; // 30% opacity
-        plotDiv.style.width = `${plot.width * 100}%`;
-        plotDiv.style.height = `${plot.height * 100}%`;
-        plotDiv.style.left = `${plot.x * 100}%`;
-        plotDiv.style.top = `${plot.y * 100}%`;
-        plotDiv.onclick = () => {
-            const description = document.getElementById('plot-description');
-            description.textContent = plot.description;
-            description.classList.remove('hidden');
-        };
-        grid.appendChild(plotDiv);
-    });
+        const plotsText = await response.text();
+        const plots = jsyaml.load(plotsText);
+
+        // Verify that plots is an array
+        if (!Array.isArray(plots)) {
+            throw new TypeError("Plots is not an array");
+        }
+
+        const grid = document.getElementById('grid');
+
+        for (let i = 0; i < plots.length; i++) {
+            const plot = plots[i];
+
+            if (typeof plot === 'object' && plot.title && plot.coordinates) {
+                const plotDiv = document.createElement('div');
+                plotDiv.className = 'plot';
+                plotDiv.style.borderColor = plot.borderColor;
+                plotDiv.style.backgroundColor = plot.fillColor + '4D'; // 30% opacity
+                plotDiv.style.width = `${plot.width * 100}%`;
+                plotDiv.style.height = `${plot.height * 100}%`;
+                plotDiv.style.left = `${plot.x * 100}%`;
+                plotDiv.style.top = `${plot.y * 100}%`;
+
+                plotDiv.onclick = () => {
+                    const description = document.getElementById('plot-description');
+                    description.textContent = plot.description;
+                    description.classList.remove('hidden');
+                };
+
+                grid.appendChild(plotDiv);
+            } else {
+                console.warn("Plot is not properly formatted:", plot);
+            }
+        }
+    } catch (error) {
+        console.error("Error fetching plots:", error);
+    }
 }
+
 
 // Function to toggle between light and dark mode
 function toggleMode() {
