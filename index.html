@@ -3,36 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CubeMap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script defer src="app.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <title>CubeKrowd Dynmap</title>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>CubeMap</h1>
-            <button id="theme-toggle">
-                <span class="material-icons">brightness_6</span>
-            </button>
-        </header>
-        <div class="content">
-            <aside id="sidebar">
-                <select id="sector-select">
-                    <!-- Sectors will be populated here -->
-                </select>
-            </aside>
-            <main>
-                <div class="map-container">
-                    <img id="dynmap" alt="Dynmap">
-                    <canvas id="overlay"></canvas>
-                </div>
-            </main>
+    <header>
+        <h1>CubeKrowd Dynmap</h1>
+        <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+    </header>
+    <main>
+        <aside>
+            <h2>Sectors</h2>
+            <select id="sector-dropdown"></select>
+        </aside>
+        <div id="map-container">
+            <img id="dynmap" src="" alt="Dynmap" />
+            <div id="grid"></div>
         </div>
-        <footer id="footer">
-            <!-- Footer content will be populated here -->
-        </footer>
-        <div id="plot-description" class="neumorphic-box hidden"></div>
-    </div>
+        <div id="plot-description" class="hidden"></div>
+    </main>
+    <footer id="footer"></footer>
+    <script src="script.js"></script>
 </body>
 </html>
