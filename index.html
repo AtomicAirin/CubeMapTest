@@ -15,7 +15,12 @@
         <select id="sector-dropdown"></select>
         <button class="toggle-button" id="mode-toggle">Toggle Dark/Light Mode</button>
         <div id="plot-description" class="hidden"></div>
-        <footer id="footer"></footer>
+        <div class="footer">
+            <a href="https://example.com" class="footer-item">Submit here</a>
+            <span class="footer-item">Static text here</span>
+            <span class="footer-item">CubeMap v${config.version}</span>
+            <span class="footer-item">Updated ${config.last_updated}</span>
+        </div>
     </div>
     <div id="dynmap">
         <img src="https://image.api.playstation.com/vulcan/ap/rnd/202407/0401/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.png" id="dynmap-img" alt="Dynmap" style="max-height: 80vh;"/>
