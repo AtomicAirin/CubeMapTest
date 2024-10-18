@@ -1,30 +1,28 @@
+<!-- index.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
     <title>CubeKrowd Dynmap</title>
 </head>
 <body>
-    <aside>
-        <header>
-            <h1>CubeKrowd Dynmap</h1>
-            <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
-        </header>
-        <h2>Sectors</h2>
-        <select id="sector-dropdown" class="custom-dropdown"></select>
-        <footer id="footer"></footer>
-    </aside>
-    <main>
-        <div id="map-container">
-            <img id="dynmap" src="https://image.api.playstation.com/vulcan/ap/rnd/202407/0401/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.png" alt="Dynmap" />
-            <div id="grid"></div>
-        </div>
+    <div id="sidebar">
+        <h1>CubeKrowd</h1>
+        <label for="sector-dropdown">Select Sector:</label>
+        <select id="sector-dropdown"></select>
+        <button class="toggle-button" id="mode-toggle">Toggle Dark/Light Mode</button>
         <div id="plot-description" class="hidden"></div>
-    </main>
+        <footer id="footer"></footer>
+    </div>
+    <div id="dynmap">
+        <img src="https://image.api.playstation.com/vulcan/ap/rnd/202407/0401/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.png" id="dynmap-img" alt="Dynmap" style="max-height: 80vh;"/>
+        <div id="grid"></div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
