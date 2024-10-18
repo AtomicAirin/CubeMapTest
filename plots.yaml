@@ -1,13 +1,21 @@
 plots:
   - title: "Plot 1"
     sector: "Sector 1"
-    coordinates: [[100, 100], [200, 200]]
+    coordinates:
+      - x1: 0.1
+        y1: 0.1
+        x2: 0.2
+        y2: 0.2
     fill_color: "#FF5733"
     border_color: "#FF0000"
     description: "Description for Plot 1"
   - title: "Plot 2"
     sector: "Sector 2"
-    coordinates: [[150, 150], [250, 250]]
+    coordinates:
+      - x1: 0.1
+        y1: 0.1
+        x2: 0.2
+        y2: 0.2
     fill_color: "#33FF57"
     border_color: "#00FF00"
     description: "Description for Plot 2"
