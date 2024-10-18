@@ -9,19 +9,25 @@ aside {
     background-color: #ffffff;
     padding: 20px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    width: 250px; /* Fixed width for the sidebar */
 }
 
 main {
     flex-grow: 1;
     position: relative;
-}
-
-header {
-    text-align: center;
+    display: flex; /* Flexbox for layout */
 }
 
 #map-container {
     position: relative;
+    flex-grow: 1; /* Allow map container to take available space */
+    height: 80vh; /* Lock the height to 80% of viewport */
+}
+
+#dynmap {
+    width: 100%; /* Make the image responsive */
+    height: 80%; /* Set height to 80% of its container */
+    object-fit: cover; /* Cover the container without stretching */
 }
 
 #grid {
@@ -65,4 +71,25 @@ footer {
 
 .dark-mode aside {
     background-color: #444;
+}
+
+/* Custom dropdown styling */
+.custom-dropdown {
+    appearance: none; /* Remove default styling */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #ffffff;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+}
+
+.custom-dropdown:focus {
+    outline: none;
+    border-color: #007BFF; /* Change border color on focus */
+}
+
+.custom-dropdown option {
+    padding: 10px;
 }
