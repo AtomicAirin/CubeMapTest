@@ -14,14 +14,19 @@ body.dark-mode {
 }
 
 #sidebar {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    background-color: #fff; /* Light mode sidebar */
+    color: #000;
     width: 250px;
     display: flex;
     flex-direction: column;
     padding: 20px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
-    position: relative; /* Position relative for absolute child positioning */
+    height: 100vh; /* Full height */
+}
+
+body.dark-mode #sidebar {
+    background-color: #333; /* Dark mode sidebar */
+    color: #fff;
 }
 
 #dynmap {
@@ -65,6 +70,7 @@ body.dark-mode {
     padding: 10px;
     cursor: pointer;
     transition: background-color 0.3s; /* Transition for background color */
+    margin-top: 10px; /* Spacing */
 }
 
 body.dark-mode .toggle-button {
