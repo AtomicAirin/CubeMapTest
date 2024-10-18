@@ -72,8 +72,14 @@ body.dark-mode #sidebar {
     margin-top: 10px; /* Spacing */
 }
 
+body.light-mode .toggle-button {
+    background-color: #f0f0f0; /* Light background */
+    color: #000; /* Dark text */
+}
+
 body.dark-mode .toggle-button {
     background-color: #444; /* Dark mode button color */
+    color: #fff; /* Light text */
 }
 
 .hidden {
