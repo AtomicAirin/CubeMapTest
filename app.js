@@ -1,3 +1,10 @@
+// Fetches and parses the YAML configuration file
+async function fetchConfig() {
+    const response = await fetch('config.yaml'); // Fetch the YAML file from the server
+    const text = await response.text();
+    return jsyaml.load(text); // Parse the YAML file using js-yaml
+}
+
 async function fetchDynmap() {
     const dynmapUrl = "https://image.api.playstation.com/vulcan/ap/rnd/202407/0401/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.png"; // Replace with the actual image URL
     const dynmapImage = document.getElementById('dynmap');
@@ -57,6 +64,11 @@ function drawPlots(plots, ctx) {
         ctx.fillStyle = "#000000";
         ctx.fillText(plot.title, start.x + 5, start.y + 20);
     });
+}
+
+function displayPlotInfo(title, description) {
+    document.getElementById('plot-title').textContent = title;
+    document.getElementById('plot-description').textContent = description;
 }
 
 async function init() {
