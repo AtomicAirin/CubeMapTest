@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CubeKrowd Dynmap Viewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="map-container">
+        <img id="dynmap" src="https://cubekrowd.dynmap.image/link" alt="CubeKrowd Dynmap">
+        <canvas id="overlay"></canvas>
+    </div>
+    <div id="plot-info">
+        <h3 id="plot-title">Select a plot</h3>
+        <p id="plot-description">Click on a plot to see details.</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
