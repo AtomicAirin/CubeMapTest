@@ -33,3 +33,53 @@ body {
 #plot-info {
     text-align: center;
 }
+
+#sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+    padding: 10px;
+    border-right: 1px solid #ccc;
+    height: 100%;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.8em;
+}
+
+.footer-item a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+}
+
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+}
