@@ -1,40 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Include Inter font from Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynmap Viewer</title>
-    <link rel="stylesheet" href="style.css">
+    <title>CubeMap</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="app.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <button id="theme-toggle">
-            <span class="material-icons">brightness_6</span>
-        </button>
-    </header>
-    <div id="map-container" style="position: relative;">
-        <img id="dynmap" src="https://example.com/sector1-map.png" style="width: 100%; height: auto; position: relative; display: block;" draggable="false">
-        <canvas id="overlay" style="position: absolute; top: 0; left: 0; pointer-events: none;"></canvas>
+    <div class="container">
+        <header>
+            <h1>CubeMap</h1>
+            <button id="theme-toggle">
+                <span class="material-icons">brightness_6</span>
+            </button>
+        </header>
+        <div class="content">
+            <aside id="sidebar">
+                <select id="sector-select">
+                    <!-- Sectors will be populated here -->
+                </select>
+            </aside>
+            <main>
+                <div class="map-container">
+                    <img id="dynmap" alt="Dynmap">
+                    <canvas id="overlay"></canvas>
+                </div>
+            </main>
+        </div>
+        <footer id="footer">
+            <!-- Footer content will be populated here -->
+        </footer>
+        <div id="plot-description" class="neumorphic-box hidden"></div>
     </div>
-    <div id="plot-info">
-        <h3 id="plot-title">Select a plot</h3>
-        <p id="plot-description">Click on a plot to see details.</p>
-    </div>
-    <div id="sidebar">
-        <label for="sector-select">Select a Sector:</label>
-        <select id="sector-select">
-            <!-- Options will be populated by JavaScript -->
-        </select>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
-    <script src="app.js"></script>
-    <footer>
-        <div class="footer-item">Created by [H] Kaybeo.</div>
-        <div class="footer-item">CubeMap v1.0, updated XX-XX-XXXX</div>
-        <div class="footer-item"><a href="https://example.com" target="_blank">Submit plots here</a></div>
-    </footer>
 </body>
 </html>
