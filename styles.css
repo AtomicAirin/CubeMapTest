@@ -4,7 +4,9 @@ body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+    flex-direction: column;
     background-color: #f0f0f0; /* Light mode background */
     transition: background-color 0.3s; /* Transition for background color */
 }
@@ -85,4 +87,30 @@ footer {
     margin-top: auto; /* Push footer to the bottom */
     text-align: center; /* Center footer text */
     padding: 10px 0;
+}
+
+#app {
+    display: flex; /* Change this line to use flex for the main app layout */
+    flex: 1; /* Add this line to let this grow */
+    overflow: hidden;
+}
+
+#sidebar {
+    width: 250px; /* Add this line to set a fixed width */
+    height: 100%; /* Add this line to make sidebar full height */
+    overflow-y: auto;
+}
+
+#map {
+    flex: 1; /* Change this line to let the map take remaining space */
+    overflow: hidden; /* Add this line to hide overflow */
+    dispaly: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    padding: 10px 20px; /* Modify this line for better padding */
+    flex-shrink: 0; /* Add this line to prevent footer from shrinking */
+    text-align: center;
 }
