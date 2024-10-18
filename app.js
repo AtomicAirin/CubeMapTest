@@ -93,26 +93,17 @@ function drawPlots(plots) {
         });
 
         if (clickedPlot) {
-            displayPlotInfo(clickedPlot);
+            showPlotDescription(clickedPlot, x, y);
         }
     };
 }
 
-function displayPlotInfo(plot) {
-    let descriptionBox = document.getElementById('plot-description');
-    if (!descriptionBox) {
-        descriptionBox = document.createElement('div');
-        descriptionBox.id = 'plot-description';
-        descriptionBox.style.position = 'fixed';
-        descriptionBox.style.bottom = '10px';
-        descriptionBox.style.right = '10px';
-        descriptionBox.style.backgroundColor = '#333';
-        descriptionBox.style.color = '#fff';
-        descriptionBox.style.padding = '10px';
-        descriptionBox.style.borderRadius = '5px';
-        document.body.appendChild(descriptionBox);
-    }
-    descriptionBox.innerHTML = `<strong>${plot.title}</strong><br>${plot.description}`;
+function showPlotDescription(plot, x, y) {
+    const descriptionBox = document.getElementById('plot-description');
+    descriptionBox.textContent = plot.description;
+    descriptionBox.style.top = `${y}px`;
+    descriptionBox.style.left = `${x}px`;
+    descriptionBox.classList.remove('hidden');
 }
 
 function setupThemeToggle() {
@@ -122,24 +113,17 @@ function setupThemeToggle() {
     });
 }
 
-async function updateFooter() {
-    const config = await fetchConfig();
-    const footer = document.getElementById('footer');
-    footer.innerHTML = `
-        <div style="flex: 1;">Created by [H] Kaybeo.</div>
-        <div style="flex: 1;">${config.version}, updated ${config.last_updated}</div>
-        <div style="flex: 1;"><a href="https://example.com" target="_blank">Submit plots here</a></div>
-    `;
-}
-
 async function init() {
-    const sectorsConfig = await fetchSectors();
-    populateSectors(sectorsConfig.sectors);
-
-    loadSectorMap(sectorsConfig.sectors[0].name);
-
+    const config = await fetchConfig();
+    document.getElementById('footer').innerHTML = `
+        <span>Created by [H] Kaybeo.</span>
+        <span>CubeMap v${config.version}, updated ${config.last_updated}</span>
+        <a href="https://example.com">Submit plots here</a>
+    `;
+    const sectors = await fetchSectors();
+    populateSectors(sectors);
     setupThemeToggle();
-    updateFooter();
+    loadSectorMap(sectors[0].name);
 }
 
-window.onload = init;
+init();
