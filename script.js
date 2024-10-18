@@ -13,17 +13,26 @@ async function fetchConfig() {
 
 // Function to fetch the sectors from sectors.yaml
 async function fetchSectors() {
-    const response = await fetch('sectors.yaml');
-    const sectorsText = await response.text();
-    const sectors = jsyaml.load(sectorsText);
-    
-    const dropdown = document.getElementById('sector-dropdown');
-    sectors.forEach(sector => {
-        const option = document.createElement('option');
-        option.value = sector.url;
-        option.textContent = sector.name;
-        dropdown.appendChild(option);
-    });
+    try {
+        const response = await fetch('sectors.yaml'); // Adjust this path if necessary
+        const text = await response.text();
+        const sectors = jsyaml.load(text); // Load YAML data
+
+        const dropdown = document.getElementById('sector-dropdown');
+        dropdown.innerHTML = ''; // Clear existing options
+
+        // Populate dropdown with sector names and URLs using for...of
+        for (const sector of sectors) {
+            const option = document.createElement('option');
+            option.value = sector.url; // Store the URL in the value
+            option.textContent = sector.name; // Display the name
+            dropdown.appendChild(option);
+        }
+
+        return sectors; // Return the loaded sectors for further use
+    } catch (error) {
+        console.error("Error fetching sectors:", error);
+    }
 }
 
 // Function to fetch the plots from plots.yaml
