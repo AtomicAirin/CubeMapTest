@@ -1,0 +1,5 @@
+sectors:
+  - name: Sector 1
+    image_url: "https://example.com/sector1-map.png"
+  - name: Sector 2
+    image_url: "https://example.com/sector2-map.png"
