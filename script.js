@@ -8,7 +8,7 @@ async function fetchConfig() {
     
     // Set footer content
     const footer = document.getElementById('footer');
-    footer.innerHTML = `Created by [H] Kaybeo. CubeMap v${config.version}, updated ${config.lastUpdated}`;
+    footer.innerHTML = `Created by [H] Kaybeo. CubeMap v${config.version}, updated ${config.last_updated}`;
 }
 
 // Function to fetch the sectors from sectors.yaml
