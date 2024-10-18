@@ -1,21 +1,16 @@
-plots:
-  - title: "Plot 1"
-    sector: "Sector 1"
-    coordinates:
-      - x1: 0.1
-        y1: 0.1
-        x2: 0.2
-        y2: 0.2
-    fill_color: "#FF5733"
-    border_color: "#FF0000"
-    description: "Description for Plot 1"
-  - title: "Plot 2"
-    sector: "Sector 2"
-    coordinates:
-      - x1: 0.1
-        y1: 0.1
-        x2: 0.2
-        y2: 0.2
-    fill_color: "#33FF57"
-    border_color: "#00FF00"
-    description: "Description for Plot 2"
+- title: "Plot 1"
+  description: "Description for Plot 1"
+  sector: "Sector 1"
+  coordinates:
+    - x1: 0.1
+      y1: 0.2
+      x2: 0.3
+      y2: 0.4
+- title: "Plot 2"
+  description: "Description for Plot 2"
+  sector: "Sector 2"
+  coordinates:
+    - x1: 0.4
+      y1: 0.5
+      x2: 0.6
+      y2: 0.7
