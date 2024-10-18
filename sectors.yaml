@@ -1,5 +1,5 @@
 sectors:
-  - name: Sector 1
+  - name: "Sector 1"
     image_url: "https://image.api.playstation.com/vulcan/ap/rnd/202407/0401/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.png"
-  - name: Sector 2
+  - name: "Sector 2"
     image_url: "https://assets-prd.ignimgs.com/2021/12/14/minecraft-1639513933156.jpg?width=300&crop=1%3A1%2Csmart&auto=webp"
