@@ -1,0 +1,13 @@
+plots:
+  - title: Plot 1
+    description: "A nice plot in Sector 1."
+    coordinates: [[100, 100], [200, 200]]
+    border_color: "#ff0000"
+    fill_color: "rgba(255, 0, 0, 0.3)"
+    sector: "Sector 1"
+  - title: Plot 2
+    description: "Another plot in Sector 2."
+    coordinates: [[300, 300], [400, 400]]
+    border_color: "#00ff00"
+    fill_color: "rgba(0, 255, 0, 0.3)"
+    sector: "Sector 2"
