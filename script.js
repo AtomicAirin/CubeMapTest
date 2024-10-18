@@ -1,85 +1,67 @@
 // script.js
 
+// Function to fetch the configuration from config.yaml
 async function fetchConfig() {
     const response = await fetch('config.yaml');
-    const yamlText = await response.text();
-    return jsyaml.load(yamlText);
+    const configText = await response.text();
+    const config = jsyaml.load(configText);
+    
+    // Set footer content
+    const footer = document.getElementById('footer');
+    footer.innerHTML = `Created by [H] Kaybeo. CubeMap v${config.version}, updated ${config.lastUpdated}`;
 }
 
-async function fetchPlots() {
-    const response = await fetch('plots.yaml');
-    const yamlText = await response.text();
-    return jsyaml.load(yamlText);
-}
-
+// Function to fetch the sectors from sectors.yaml
 async function fetchSectors() {
     const response = await fetch('sectors.yaml');
-    const yamlText = await response.text();
-    return jsyaml.load(yamlText);
-}
-
-function createPlotElement(plot) {
-    const plotDiv = document.createElement('div');
-    plotDiv.classList.add('plot');
-    plotDiv.style.borderColor = plot.outlineColor;
-    plotDiv.style.backgroundColor = plot.fillColor + '4C'; // Adding 30% transparency
-    plotDiv.textContent = plot.title;
-
-    // Click event to show the description
-    plotDiv.addEventListener('click', () => {
-        document.getElementById('plot-description').textContent = plot.description;
-        document.getElementById('plot-description').classList.remove('hidden');
-    });
-
-    return plotDiv;
-}
-
-function positionPlots(plots) {
-    const dynmap = document.getElementById('dynmap');
-    const width = dynmap.clientWidth;
-    const height = dynmap.clientHeight;
-
-    plots.forEach(plot => {
-        const plotElement = createPlotElement(plot);
-        
-        // Calculate the plot position based on percentage values
-        const left = plot.coordinates[0] * width;
-        const top = plot.coordinates[1] * height;
-
-        plotElement.style.left = `${left}px`;
-        plotElement.style.top = `${top}px`;
-        document.getElementById('grid').appendChild(plotElement);
-    });
-}
-
-// Load and render the data
-async function loadAndRender() {
-    const config = await fetchConfig();
-    const plots = await fetchPlots();
-    const sectors = await fetchSectors();
-
-    document.getElementById('footer').innerHTML = `
-        Created by [H] Kaybeo.<br>
-        CubeMap v${config.version}, updated ${config.lastUpdatedDate}.<br>
-        <a href="https://example.com">Submit plots here</a>
-    `;
-
-    // Populate the dropdown with sectors
-    const sectorDropdown = document.getElementById('sector-dropdown');
+    const sectorsText = await response.text();
+    const sectors = jsyaml.load(sectorsText);
+    
+    const dropdown = document.getElementById('sector-dropdown');
     sectors.forEach(sector => {
         const option = document.createElement('option');
-        option.value = sector.name;
+        option.value = sector.url;
         option.textContent = sector.name;
-        sectorDropdown.appendChild(option);
+        dropdown.appendChild(option);
     });
-
-    positionPlots(plots);
 }
 
-// Handle window resize
-window.addEventListener('resize', () => {
-    document.getElementById('grid').innerHTML = ''; // Clear existing plots
-    loadAndRender(); // Re-render plots
-});
+// Function to fetch the plots from plots.yaml
+async function fetchPlots() {
+    const response = await fetch('plots.yaml');
+    const plotsText = await response.text();
+    const plots = jsyaml.load(plotsText);
+    const grid = document.getElementById('grid');
 
-loadAndRender();
+    plots.forEach(plot => {
+        const plotDiv = document.createElement('div');
+        plotDiv.className = 'plot';
+        plotDiv.style.borderColor = plot.borderColor;
+        plotDiv.style.backgroundColor = plot.fillColor + '4D'; // 30% opacity
+        plotDiv.style.width = `${plot.width * 100}%`;
+        plotDiv.style.height = `${plot.height * 100}%`;
+        plotDiv.style.left = `${plot.x * 100}%`;
+        plotDiv.style.top = `${plot.y * 100}%`;
+        plotDiv.onclick = () => {
+            const description = document.getElementById('plot-description');
+            description.textContent = plot.description;
+            description.classList.remove('hidden');
+        };
+        grid.appendChild(plotDiv);
+    });
+}
+
+// Function to toggle between light and dark mode
+function toggleMode() {
+    document.body.classList.toggle('dark-mode');
+}
+
+// Event listener for mode toggle button
+document.getElementById('mode-toggle').addEventListener('click', toggleMode);
+
+// Fetch configuration, sectors, and plots on page load
+window.onload = async () => {
+    await fetchConfig();
+    await fetchSectors();
+    await fetchPlots();
+};
