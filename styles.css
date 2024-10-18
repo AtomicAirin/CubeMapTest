@@ -1,95 +1,64 @@
+/* styles.css */
+
 body {
-    font-family: 'Inter', sans-serif;
     margin: 0;
-    padding: 0;
+    font-family: 'Inter', sans-serif;
     display: flex;
+    height: 100vh;
+    background-color: #f0f0f0;
 }
 
-aside {
-    background-color: #ffffff;
+#sidebar {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    width: 250px;
+    display: flex;
+    flex-direction: column;
     padding: 20px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
-    width: 250px; /* Fixed width for the sidebar */
-}
-
-main {
-    flex-grow: 1;
-    position: relative;
-    display: flex; /* Flexbox for layout */
-}
-
-#map-container {
-    position: relative;
-    flex-grow: 1; /* Allow map container to take available space */
-    height: 80vh; /* Lock the height to 80% of viewport */
+    position: relative; /* Position relative for absolute child positioning */
 }
 
 #dynmap {
-    width: 100%; /* Make the image responsive */
-    height: 80%; /* Set height to 80% of its container */
-    object-fit: cover; /* Cover the container without stretching */
+    flex: 1; /* Take the remaining space */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    position: relative; /* Relative position for grid overlay */
 }
 
 #grid {
-    position: absolute;
+    position: absolute; /* Position the grid on top of the dynmap */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    pointer-events: none; /* Allow clicks to pass through */
 }
 
 .plot {
-    position: absolute;
-    border: 2px solid;
-    border-radius: 8px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    transition: transform 0.2s;
-    color: black; /* Default text color */
+    position: absolute; /* Allow for absolute positioning of plots */
+    border: 2px solid; /* Solid border */
+    cursor: pointer; /* Pointer cursor on hover */
+    pointer-events: auto; /* Enable interactions */
+    transition: all 0.2s ease; /* Smooth transitions */
 }
 
-.plot:hover {
-    transform: scale(1.05);
+#sector-dropdown {
+    appearance: none; /* Remove default styles */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: white url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><polygon points="0,0 10,10 20,0" fill="gray"/></svg>') no-repeat right 10px center; /* Custom dropdown arrow */
+    background-size: 10px; /* Size of the custom arrow */
 }
 
 .hidden {
-    display: none;
+    display: none; /* Hide elements when needed */
 }
 
 footer {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.dark-mode {
-    background-color: #333;
-    color: #fff;
-}
-
-.dark-mode aside {
-    background-color: #444;
-}
-
-/* Custom dropdown styling */
-.custom-dropdown {
-    appearance: none; /* Remove default styling */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: #ffffff;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-}
-
-.custom-dropdown:focus {
-    outline: none;
-    border-color: #007BFF; /* Change border color on focus */
-}
-
-.custom-dropdown option {
-    padding: 10px;
+    margin-top: auto; /* Push footer to the bottom */
+    text-align: center; /* Center footer text */
+    padding: 10px 0;
 }
