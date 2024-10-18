@@ -1,7 +1,7 @@
 plots:
   - title: Plot 1
     description: "A nice plot in Sector 1."
-    coordinates: [[100, 100], [200, 200]]
+    coordinates: [[100, 100], [225, 225]]
     border_color: "#ff0000"
     fill_color: "rgba(255, 0, 0, 0.3)"
     sector: "Sector 1"
