@@ -3,12 +3,9 @@
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    display: flex;
-    min-height: 100vh;
-    overflow: hidden;
-    flex-direction: column;
-    background-color: #f0f0f0; /* Light mode background */
-    transition: background-color 0.3s; /* Transition for background color */
+    display: flex; /* Ensure body is a flex container */
+    min-height: 100vh; /* Full height for the body */
+    overflow: hidden; /* Prevent global scrollbars */
 }
 
 body.dark-mode {
@@ -90,23 +87,25 @@ footer {
 }
 
 #app {
-    display: flex; /* Change this line to use flex for the main app layout */
-    flex: 1; /* Add this line to let this grow */
-    overflow: hidden;
+    display: flex; /* Use flex for layout */
+    flex: 1; /* Take the remaining space */
+    overflow: hidden; /* Prevent overflow in the app area */
 }
 
 #sidebar {
-    width: 250px; /* Add this line to set a fixed width */
-    height: 100%; /* Add this line to make sidebar full height */
-    overflow-y: auto;
+    width: 250px; /* Fixed width for sidebar */
+    height: 100vh; /* Full height for the sidebar */
+    overflow-y: auto; /* Allows scrolling for long lists */
+    background-color: #f0f0f0; /* Optional: light background for contrast */
 }
 
 #map {
-    flex: 1; /* Change this line to let the map take remaining space */
-    overflow: hidden; /* Add this line to hide overflow */
-    dispaly: flex;
-    justify-content: center;
-    align-items: center;
+    flex: 1; /* Take the remaining space */
+    overflow: hidden; /* Prevent overflow */
+    display: flex; /* Flex container for the map */
+    justify-content: center; /* Center the dynmap */
+    align-items: center; /* Center vertically */
+    position: relative; /* Position for absolute elements inside if needed */
 }
 
 footer {
