@@ -5,10 +5,10 @@ async function fetchConfig() {
     const response = await fetch('config.yaml');
     const configText = await response.text();
     const config = jsyaml.load(configText);
-    
-    // Set footer content
-    const footer = document.getElementById('footer');
-    footer.innerHTML = `Created by [H] Kaybeo. CubeMap v${config.version}, updated ${config.last_updated}`;
+
+    // Assuming you have already set the innerHTML for the footer items
+    document.querySelector('.footer-item:nth-child(3)').textContent = `CubeMap v${config.version}`;
+    document.querySelector('.footer-item:nth-child(4)').textContent = `Updated ${config.last_updated}`;
 }
 
 // Function to fetch the sectors from sectors.yaml
