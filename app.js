@@ -1,5 +1,5 @@
 async function fetchDynmap() {
-    const dynmapUrl = "https://example.com/dynmap-image-url"; // Replace with the actual image URL
+    const dynmapUrl = "https://image.api.playstation.com/vulcan/ap/rnd/202407/0401/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.png"; // Replace with the actual image URL
     const dynmapImage = document.getElementById('dynmap');
     dynmapImage.src = dynmapUrl;
 
