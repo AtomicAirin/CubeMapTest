@@ -5,7 +5,12 @@ body {
     font-family: 'Inter', sans-serif;
     display: flex;
     height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #f0f0f0; /* Light mode background */
+    transition: background-color 0.3s; /* Transition for background color */
+}
+
+body.dark-mode {
+    background-color: #121212; /* Dark mode background */
 }
 
 #sidebar {
@@ -51,6 +56,19 @@ body {
     border: 1px solid #ccc;
     background: white url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><polygon points="0,0 10,10 20,0" fill="gray"/></svg>') no-repeat right 10px center; /* Custom dropdown arrow */
     background-size: 10px; /* Size of the custom arrow */
+}
+
+.toggle-button {
+    background-color: #ccc; /* Light mode button color */
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transition for background color */
+}
+
+body.dark-mode .toggle-button {
+    background-color: #444; /* Dark mode button color */
 }
 
 .hidden {
