@@ -136,9 +136,9 @@ document.getElementById('mode-toggle').addEventListener('click', toggleMode);
 // Fetch configuration, sectors, and plots on page load
 document.addEventListener('DOMContentLoaded', () => {
     const sectorDropdown = document.getElementById('sector-dropdown');
-    await fetchConfig();
-    await fetchSectors();
-    await fetchPlots(sectorDropdown.value);
+    fetchConfig();
+    fetchSectors();
+    fetchPlots(sectorDropdown.value);
 
     // Event listener to call fetchPlots whenever the sector changes
     sectorDropdown.addEventListener('change', () => {
