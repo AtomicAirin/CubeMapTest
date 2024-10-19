@@ -24,7 +24,7 @@ async function fetchSectors() {
     // Populate dropdown with options
     for (const sector of sectors) {
         const option = document.createElement('option');
-        option.value = sector.url; // Set the value to the URL
+        option.value = sector.imagePath; // Set the value to the URL
         option.textContent = sector.name; // Set the displayed text
         sectorDropdown.appendChild(option);
     }
