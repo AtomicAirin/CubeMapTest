@@ -4,7 +4,7 @@ An interactive/informational map for CubeKrowd and a few of its key locations.
 
 ## How do I submit my own base/shop/etc?
 
-**Option 1: Pull Request**
+### Option 1: Pull Request
 
 Make a pull request adding the area you wish to identify to `plots.yaml`. The format is as follows:
 
@@ -19,7 +19,7 @@ Make a pull request adding the area you wish to identify to `plots.yaml`. The fo
       - [0.3, 0.4]  # (x2, y2) - second corner
 ```
 
-**Option 2: Google Form**
+### Option 2: Google Form
 
 Fill out [this Google form](https://www.example.com) with the information above.
 
