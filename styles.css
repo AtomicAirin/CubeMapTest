@@ -86,7 +86,10 @@ body.dark-mode .toggle-button {
     display: none; /* Hide elements when needed */
 }
 
-footer {
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     margin-top: auto; /* Push footer to the bottom */
     padding: 10px 20px; /* Modify this line for better padding */
     flex-shrink: 0; /* Add this line to prevent footer from shrinking */
