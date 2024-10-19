@@ -36,6 +36,18 @@ async function fetchSectors() {
     });
 }
 
+// Function to set the grid size based on the image size
+function adjustGridSize() {
+    const dynmapImg = document.getElementById('dynmap-img');
+    const grid = document.getElementById('grid');
+
+    // Set grid dimensions to match the image
+    grid.style.width = `${dynmapImg.clientWidth}px`;
+    grid.style.height = `${dynmapImg.clientHeight}px`;
+}
+
+// Listen for image load event to adjust the grid size
+document.getElementById('dynmap-img').addEventListener('load', adjustGridSize);
 
 // Function to fetch the plots from plots.yaml
 async function fetchPlots() {
@@ -45,32 +57,43 @@ async function fetchPlots() {
     const grid = document.getElementById('grid');
 
     // Clear existing plots
-    grid.innerHTML = '';
-
-    // Get the dynmap image dimensions
-    const dynmapImg = document.getElementById('dynmap-img');
-    const imgWidth = dynmapImg.clientWidth;
-    const imgHeight = dynmapImg.clientHeight;
-
-    // Create plot elements
+    adjustGridSize();
+    
+    // Iterate through plots and set their positions
     for (let i = 0; i < plots.length; i++) {
         const plot = plots[i];
         const plotDiv = document.createElement('div');
         plotDiv.className = 'plot';
         plotDiv.style.borderColor = plot.borderColor;
         plotDiv.style.backgroundColor = plot.fillColor + '4D'; // 30% opacity
-        plotDiv.style.position = 'absolute'; // Ensure plots are absolutely positioned
-        plotDiv.style.width = `${plot.width * 100}%`;
-        plotDiv.style.height = `${plot.height * 100}%`;
-        plotDiv.style.left = `${plot.x * 100}%`;
-        plotDiv.style.top = `${plot.y * 100}%`;
+        plotDiv.style.position = 'absolute';
+        plotDiv.style.width = `${plot.width * grid.clientWidth}px`;
+        plotDiv.style.height = `${plot.height * grid.clientHeight}px`;
+        plotDiv.style.left = `${plot.x * grid.clientWidth}px`;
+        plotDiv.style.top = `${plot.y * grid.clientHeight}px`;
 
+        // Create a span element for the title and add it to the plotDiv
+        const titleSpan = document.createElement('span');
+        titleSpan.textContent = plot.title;
+        titleSpan.style.position = 'absolute';
+        titleSpan.style.top = '50%';
+        titleSpan.style.left = '50%';
+        titleSpan.style.transform = 'translate(-50%, -50%)';
+        titleSpan.style.fontSize = '12px'; // Adjust as needed
+        titleSpan.style.color = '#ffffff'; // Adjust for visibility
+        titleSpan.style.textAlign = 'center';
+        plotDiv.appendChild(titleSpan);
+
+        // Add an onclick event to display the plot description
         plotDiv.onclick = () => {
             const description = document.getElementById('plot-description');
             description.textContent = plot.description;
             description.classList.remove('hidden');
         };
-        
+
+        console.log(plot.title, plotDiv.style, titleSpan.style);
+
+        // Append the plotDiv to the grid
         grid.appendChild(plotDiv);
     }
 }
