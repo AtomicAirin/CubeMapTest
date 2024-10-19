@@ -48,6 +48,7 @@ function adjustGridSize() {
 
 // Function to fetch the plots from plots.yaml
 async function fetchPlots(currentSector) {
+    console.log("Fetching Plots");
     const response = await fetch('plots.yaml');
     const plotsText = await response.text();
     const data = jsyaml.load(plotsText);
@@ -58,6 +59,7 @@ async function fetchPlots(currentSector) {
 
     // Filter the plots for the current sector
     const filteredPlots = plots.filter(plot => plot.sector === currentSector);
+    console.log(plots, filteredPlots);
 
     filteredPlots.forEach(plot => {
         const [[x1, y1], [x2, y2]] = plot.coordinates;
@@ -124,6 +126,7 @@ function waitForElement(selector, callback) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("Loaded");
     fetchConfig(); // Ensure this function is defined and works correctly
     fetchSectors(); // Ensure this function is defined and works correctly
 
@@ -133,6 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Listen for changes on the dropdown
         sectorDropdown.addEventListener('change', (event) => {
+            console.log("Dropdown Change");
             const selectedSector = event.target.value;
             console.log(selectedSector);
             fetchPlots(selectedSector); // Fetch plots for the new sector
@@ -141,6 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Wait for the dynmap image to be available
     waitForElement('#dynmap-img', (dynmapImg) => {
+        console.log("Image Change");
         dynmapImg.onload = () => {
             adjustGridSize(); // Adjust grid size when image loads
         };
