@@ -1,6 +1,4 @@
 - name: "Sector 1"
-  url: "https://image.api.playstation.com/vulcan/ap/rnd/202407/0401/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.png"
-  imagePath: "/assets/Spawn.png"
+  url: "https://atomicairin.github.io/CubeMapTest/assets/Spawn.png"
 - name: "Sector 2"
-  url: "https://assets-prd.ignimgs.com/2021/12/14/minecraft-1639513933156.jpg?width=300&crop=1%3A1%2Csmart&auto=webp"
-  imagePath: "/assets/ShoppingDistrict.png"
+  url: "https://atomicairin.github.io/CubeMapTest/assets/ShoppingDistrict.png"
