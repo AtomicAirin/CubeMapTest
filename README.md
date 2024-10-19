@@ -1,4 +1,4 @@
-# CubeMap
+# KrowdMap
 
 An interactive/informational map for CubeKrowd's su1! Includes bases, shops, and more.
 
