@@ -59,7 +59,7 @@ async function fetchPlots(currentSector) {
 
     // Filter the plots for the current sector
     const filteredPlots = plots.filter(plot => plot.sector === currentSector);
-    console.log(plots, filteredPlots);
+    console.log(plots, filteredPlots, currentSector);
 
     filteredPlots.forEach(plot => {
         const [[x1, y1], [x2, y2]] = plot.coordinates;
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Listen for changes on the dropdown
         sectorDropdown.addEventListener('change', (event) => {
             console.log("Dropdown Change");
-            const selectedSector = event.target.value;
+            const selectedSector = event.target.options[event.target.selectedIndex].text;
             console.log(selectedSector);
             fetchPlots(selectedSector); // Fetch plots for the new sector
         });
