@@ -1,6 +1,7 @@
 # KrowdMap
 
 An interactive/informational map for CubeKrowd's su1! Includes bases, shops, and more.
+Created & managed by Kaybeo.
 
 ## How do I submit my own base/shop/etc?
 
@@ -24,3 +25,21 @@ Make a pull request adding the area you wish to identify to `plots.yaml`. The fo
 ```
 
 *To ensure speedy entry, please notify Kaybeo on Discord once you submit a PR or Google Form.*
+
+## Other potential FAQs
+
+### When I submit an area, which "map" field do I choose?
+Try to pick the most *specific* option; if you're noting your Shopping District plot, add it to "Shopping District". If it's your base, it's probably best on "Global".
+
+### If I submit an area to one map, will it show up on the others?
+Submissions to "Global" will appear on zoomed-in quadrant maps that they fit within. Otherwise, there is no cross-listing of maps.
+
+### My base doesn't really fit in a rectangle.
+Try your best to approximate it, avoiding extensive overlap with unclaimed land.
+
+### I want to change/remove a submission (color, size, name, etc.).
+Option 1: Select "I'm updating an entry" in the Google Form linked above.
+Option 2: Submit an appropriate pull request.
+
+### How often does the Dynmap update on this website?
+A script to update the maps begins every hour, taking some minutes to complete.
