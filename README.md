@@ -27,10 +27,13 @@ Make a pull request adding the area you wish to identify to `plots.yaml`. The fo
 
 *To ensure speedy entry, please notify Kaybeo on Discord once you submit a PR or Google Form.*
 
-## Other potential FAQs
+## FAQs
 
 ### When I submit an area, which "map" field do I choose?
-Try to pick the most *specific* option; if you're noting your Shopping District plot, add it to "Shopping District". If it's your base, it's probably best on "Global".
+Try to pick the most specific option:
+- `Spawn` for spawn builds
+- `Shopping District` for builds in the shopping district
+- `Global` for everything else (e.g. bases)
 
 ### If I submit an area to one map, will it show up on the others?
 Submissions to "Global" will appear on zoomed-in quadrant maps that they fit within. Otherwise, there is no cross-listing of maps.
