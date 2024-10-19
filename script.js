@@ -113,24 +113,37 @@ function toggleMode() {
 // Event listener for mode toggle button
 document.getElementById('mode-toggle').addEventListener('click', toggleMode);
 
-// Fetch configuration, sectors, and plots on page load
-document.addEventListener('DOMContentLoaded', async () => {
-    const sectorDropdown = document.getElementById('sector-dropdown');
-    await fetchConfig();
-    await fetchSectors();
-    await fetchPlots(sectorDropdown.value);
+function waitForElement(selector, callback) {
+    const interval = setInterval(() => {
+        const element = document.querySelector(selector);
+        if (element) {
+            clearInterval(interval); // Stop checking once the element is found
+            callback(element); // Call the callback function with the found element
+        }
+    }, 100); // Check every 100 milliseconds
+}
 
-    // Listen for image load event to adjust the grid size
-    const dynmapImg = document.getElementById('dynmap-img');
-    dynmapImg.onload = () => {
-        adjustGridSize();
-        const currentSector = document.getElementById('sector-select').value;
-        fetchPlots(currentSector);
-    };
-    
-    document.getElementById('sector-select').addEventListener('change', (event) => {
-        const selectedSector = event.target.value;
-        console.log(selectedSector);
-        fetchPlots(selectedSector);
+document.addEventListener('DOMContentLoaded', () => {
+    fetchConfig(); // Ensure this function is defined and works correctly
+    fetchSectors(); // Ensure this function is defined and works correctly
+
+    // Wait for the sector dropdown to be available
+    waitForElement('#sector-select', (sectorDropdown) => {
+        fetchPlots(sectorDropdown.value); // Fetch plots for the currently selected sector
+
+        // Listen for changes on the dropdown
+        sectorDropdown.addEventListener('change', (event) => {
+            const selectedSector = event.target.value;
+            console.log(selectedSector);
+            fetchPlots(selectedSector); // Fetch plots for the new sector
+        });
+    });
+
+    // Wait for the dynmap image to be available
+    waitForElement('#dynmap-img', (dynmapImg) => {
+        dynmapImg.onload = () => {
+            adjustGridSize(); // Adjust grid size when image loads
+        };
     });
 });
+
