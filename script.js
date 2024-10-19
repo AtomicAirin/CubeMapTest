@@ -13,75 +13,64 @@ async function fetchConfig() {
 
 // Function to fetch the sectors from sectors.yaml
 async function fetchSectors() {
-    try {
-        const response = await fetch('sectors.yaml');
-        const text = await response.text();
-        const sectors = jsyaml.load(text);
+    const response = await fetch('sectors.yaml');
+    const sectorsText = await response.text();
+    const sectors = jsyaml.load(sectorsText);
+    const sectorDropdown = document.getElementById('sector-dropdown');
 
-        // Ensure sectors is an array
-        if (!Array.isArray(sectors)) {
-            throw new TypeError("Sectors is not an array");
-        }
+    // Clear existing options
+    sectorDropdown.innerHTML = '';
 
-        const dropdown = document.getElementById('sector-dropdown');
-        dropdown.innerHTML = '';
-
-        for (const sector of sectors) {
-            const option = document.createElement('option');
-            option.value = sector.url; // Store the URL in the value
-            option.textContent = sector.name; // Display the name
-            dropdown.appendChild(option);
-        }
-
-        return sectors;
-    } catch (error) {
-        console.error("Error fetching sectors:", error);
+    // Populate dropdown with options
+    for (const sector of sectors) {
+        const option = document.createElement('option');
+        option.value = sector.url; // Set the value to the URL
+        option.textContent = sector.name; // Set the displayed text
+        sectorDropdown.appendChild(option);
     }
+
+    // Change the dynmap image when a sector is selected
+    sectorDropdown.addEventListener('change', function() {
+        const dynmapImg = document.getElementById('dynmap-img');
+        dynmapImg.src = this.value; // Update image source to selected sector URL
+    });
 }
 
 
 // Function to fetch the plots from plots.yaml
 async function fetchPlots() {
-    try {
-        const response = await fetch('plots.yaml');
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    const response = await fetch('plots.yaml');
+    const plotsText = await response.text();
+    const plots = jsyaml.load(plotsText);
+    const grid = document.getElementById('grid');
 
-        const plotsText = await response.text();
-        const plots = jsyaml.load(plotsText);
+    // Clear existing plots
+    grid.innerHTML = '';
 
-        // Verify that plots is an array
-        if (!Array.isArray(plots)) {
-            throw new TypeError("Plots is not an array");
-        }
+    // Get the dynmap image dimensions
+    const dynmapImg = document.getElementById('dynmap-img');
+    const imgWidth = dynmapImg.clientWidth;
+    const imgHeight = dynmapImg.clientHeight;
 
-        const grid = document.getElementById('grid');
+    // Create plot elements
+    for (let i = 0; i < plots.length; i++) {
+        const plot = plots[i];
+        const plotDiv = document.createElement('div');
+        plotDiv.className = 'plot';
+        plotDiv.style.borderColor = plot.borderColor;
+        plotDiv.style.backgroundColor = plot.fillColor + '4D'; // 30% opacity
+        plotDiv.style.width = `${plot.width * imgWidth}px`; // Adjust width based on image size
+        plotDiv.style.height = `${plot.height * imgHeight}px`; // Adjust height based on image size
+        plotDiv.style.left = `${plot.x * imgWidth}px`; // Adjust left based on image size
+        plotDiv.style.top = `${plot.y * imgHeight}px`; // Adjust top based on image size
 
-        for (let i = 0; i < plots.length; i++) {
-            const plot = plots[i];
-
-            if (typeof plot === 'object' && plot.title && plot.coordinates) {
-                const plotDiv = document.createElement('div');
-                plotDiv.className = 'plot';
-                plotDiv.style.borderColor = plot.borderColor;
-                plotDiv.style.backgroundColor = plot.fillColor + '4D'; // 30% opacity
-                plotDiv.style.width = `${plot.width * 100}%`;
-                plotDiv.style.height = `${plot.height * 100}%`;
-                plotDiv.style.left = `${plot.x * 100}%`;
-                plotDiv.style.top = `${plot.y * 100}%`;
-
-                plotDiv.onclick = () => {
-                    const description = document.getElementById('plot-description');
-                    description.textContent = plot.description;
-                    description.classList.remove('hidden');
-                };
-
-                grid.appendChild(plotDiv);
-            } else {
-                console.warn("Plot is not properly formatted:", plot);
-            }
-        }
-    } catch (error) {
-        console.error("Error fetching plots:", error);
+        plotDiv.onclick = () => {
+            const description = document.getElementById('plot-description');
+            description.textContent = plot.description;
+            description.classList.remove('hidden');
+        };
+        
+        grid.appendChild(plotDiv);
     }
 }
 
