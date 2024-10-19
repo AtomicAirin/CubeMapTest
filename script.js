@@ -95,8 +95,8 @@ function toggleMode() {
 document.getElementById('mode-toggle').addEventListener('click', toggleMode);
 
 // Fetch configuration, sectors, and plots on page load
-window.onload = async () => {
+document.addEventListener('DOMContentLoaded', async () => {
     await fetchConfig();
-    await fetchSectors();
     await fetchPlots();
-};
+    await fetchSectors();
+});
