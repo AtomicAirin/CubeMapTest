@@ -1,16 +1,26 @@
-- title: "Plot 1"
-  description: "Description for Plot 1"
-  sector: "Sector 1"
+- title: "Forest Area"
+  description: "A dense forest area with rich biodiversity."
+  sector: "north"
+  fillColor: "#008000"
+  borderColor: "#004d00"
   coordinates:
-    - x1: 0.1
-      y1: 0.2
-      x2: 0.3
-      y2: 0.4
-- title: "Plot 2"
-  description: "Description for Plot 2"
-  sector: "Sector 2"
+    - [0.1, 0.2]  # (x1, y1)
+    - [0.3, 0.4]  # (x2, y2)
+    
+- title: "Desert Zone"
+  description: "An arid desert zone with sand dunes."
+  sector: "south"
+  fillColor: "#f4a460"
+  borderColor: "#8b4513"
   coordinates:
-    - x1: 0.4
-      y1: 0.5
-      x2: 0.6
-      y2: 0.7
+    - [0.5, 0.5]  # (x1, y1)
+    - [0.8, 0.7]  # (x2, y2)
+    
+- title: "Mountain Range"
+  description: "A rocky mountain range with high peaks."
+  sector: "west"
+  fillColor: "#708090"
+  borderColor: "#2f4f4f"
+  coordinates:
+    - [0.2, 0.6]  # (x1, y1)
+    - [0.4, 0.9]  # (x2, y2)
