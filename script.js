@@ -40,6 +40,7 @@ async function fetchSectors() {
         const initialSector = sectors[0];
         const dynmapImg = document.getElementById('dynmap-img');
         dynmapImg.src = initialSector.url; // Set the initial image path
+        fetchPlots(initialSector.name);
     }
 }
 
