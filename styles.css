@@ -82,6 +82,7 @@ body.dark-mode #sidebar {
     cursor: pointer;
     transition: background-color 0.3s; /* Transition for background color */
     margin-top: 10px; /* Spacing */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 body.light-mode .toggle-button {
