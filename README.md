@@ -1,7 +1,8 @@
 # KrowdMap
 
 An interactive/informational map for CubeKrowd's su1! Includes bases, shops, and more.
-Created & managed by Kaybeo.
+
+*Created & managed by Kaybeo.*
 
 ## How do I submit my own base/shop/etc?
 
@@ -39,6 +40,7 @@ Try your best to approximate it, avoiding extensive overlap with unclaimed land.
 
 ### I want to change/remove a submission (color, size, name, etc.).
 Option 1: Select "I'm updating an entry" in the Google Form linked above.
+
 Option 2: Submit an appropriate pull request.
 
 ### How often does the Dynmap update on this website?
