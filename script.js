@@ -59,10 +59,11 @@ async function fetchPlots() {
         plotDiv.className = 'plot';
         plotDiv.style.borderColor = plot.borderColor;
         plotDiv.style.backgroundColor = plot.fillColor + '4D'; // 30% opacity
-        plotDiv.style.width = `${plot.width * imgWidth}px`; // Adjust width based on image size
-        plotDiv.style.height = `${plot.height * imgHeight}px`; // Adjust height based on image size
-        plotDiv.style.left = `${plot.x * imgWidth}px`; // Adjust left based on image size
-        plotDiv.style.top = `${plot.y * imgHeight}px`; // Adjust top based on image size
+        plotDiv.style.position = 'absolute'; // Ensure plots are absolutely positioned
+        plotDiv.style.width = `${plot.width * 100}%`;
+        plotDiv.style.height = `${plot.height * 100}%`;
+        plotDiv.style.left = `${plot.x * 100}%`;
+        plotDiv.style.top = `${plot.y * 100}%`;
 
         plotDiv.onclick = () => {
             const description = document.getElementById('plot-description');
