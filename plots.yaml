@@ -1,7 +1,7 @@
 plots:
   - title: "Forest Area"
     description: "A dense forest area with rich biodiversity."
-    sector: "north"
+    sector: "Sector 1"
     fillColor: "#008000"
     borderColor: "#004d00"
     coordinates:
@@ -10,7 +10,7 @@ plots:
       
   - title: "Desert Zone"
     description: "An arid desert zone with sand dunes."
-    sector: "south"
+    sector: "Sector 1"
     fillColor: "#f4a460"
     borderColor: "#8b4513"
     coordinates:
@@ -19,7 +19,7 @@ plots:
       
   - title: "Mountain Range"
     description: "A rocky mountain range with high peaks."
-    sector: "west"
+    sector: "Sector 2"
     fillColor: "#708090"
     borderColor: "#2f4f4f"
     coordinates:
