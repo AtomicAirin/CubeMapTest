@@ -5,7 +5,6 @@ body {
     font-family: 'Inter', sans-serif;
     display: flex; /* Ensure body is a flex container */
     min-height: 100vh; /* Full height for the body */
-    overflow: hidden; /* Prevent global scrollbars */
 }
 
 body.dark-mode {
@@ -35,13 +34,14 @@ body.dark-mode #sidebar {
     position: relative; /* Relative position for grid overlay */
     width: 100vh;
     height: 100vh;
+    overflow: scroll;
 }
 
 #dynmap-img {
-    height: 90vh;
-    width: 90vh;
+    height: 100vh;
+    width: 100vh;
     object-fit: cover;
-    padding: 5vh;
+    /* padding: 5vh; */
 }
 
 #grid {
@@ -120,12 +120,10 @@ body.dark-mode .toggle-button {
 #app {
     display: flex; /* Use flex for layout */
     flex: 1; /* Take the remaining space */
-    overflow: hidden; /* Prevent overflow in the app area */
 }
 
 #map {
     flex: 1; /* Take the remaining space */
-    overflow: hidden; /* Prevent overflow */
     display: flex; /* Flex container for the map */
     justify-content: center; /* Center the dynmap */
     align-items: center; /* Center vertically */
