@@ -42,8 +42,8 @@ function adjustGridSize() {
     const grid = document.getElementById('grid');
 
     // Set grid dimensions to match the image
-    grid.style.width = `${dynmapImg.clientWidth}px`;
-    grid.style.height = `${dynmapImg.clientHeight}px`;
+    grid.style.width = `${80/90*dynmapImg.clientWidth}px`;
+    grid.style.height = `${80/90*dynmapImg.clientHeight}px`;
 }
 
 // Listen for image load event to adjust the grid size
