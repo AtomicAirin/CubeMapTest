@@ -35,12 +35,15 @@ body.dark-mode #sidebar {
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     position: relative; /* Relative position for grid overlay */
-    max-height: 80vh;
+    max-height: 90vh;
+    width: calc(100% - 250px);
+    height: calc(100% - 250px);
 }
 
 #dynmap-img {
-    width: auto; /* Adjust based on sidebar width */
-    max-height: 80vh; /* Maintain max height */
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
 }
 
 #grid {
