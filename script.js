@@ -41,87 +41,81 @@ function adjustGridSize() {
     const dynmapImg = document.getElementById('dynmap-img');
     const grid = document.getElementById('grid');
 
-    // Get the dimensions of the image itself, excluding padding, borders, and margins
-    const rect = dynmapImg.getBoundingClientRect();
-
     // Set grid dimensions to match the image dimensions
-    grid.style.width = `${rect.width}px`;
-    grid.style.height = `${rect.height}px`;
+    grid.style.width = `${dynmapImg.naturalWidth}px`;
+    grid.style.height = `${dynmapImg.naturalHeight}px`;
 }
 
 // Listen for image load event to adjust the grid size
-document.getElementById('dynmap-img').addEventListener('load', adjustGridSize);
+const dynmapImg = document.getElementById('dynmap-img');
+dynmapImg.onload = () => {
+    adjustGridSize();
+    const currentSector = document.getElementById('sector-select').value;
+    fetchPlots(currentSector);
+};
+
+document.getElementById('sector-select').addEventListener('change', (event) => {
+    const selectedSector = event.target.value;
+    console.log(selectedSector);
+    fetchPlots(selectedSector);
+});
 
 // Function to fetch the plots from plots.yaml
 async function fetchPlots(currentSector) {
     const response = await fetch('plots.yaml');
     const plotsText = await response.text();
-    const plotsData = jsyaml.load(plotsText);
+    const data = jsyaml.load(plotsText);
+    const plots = data.plots;
+
     const grid = document.getElementById('grid');
-    const dynmapImg = document.getElementById('dynmap-img');
+    grid.innerHTML = ''; // Clear previous plots
 
-    // Clear previous plots
-    grid.innerHTML = '';
+    // Filter the plots for the current sector
+    const filteredPlots = plots.filter(plot => plot.sector === currentSector);
 
-    // Ensure the image is loaded before accessing its dimensions
-    dynmapImg.onload = () => {
-        // Set the grid dimensions to match the image dimensions
-        grid.style.width = `${dynmapImg.clientWidth}px`;
-        grid.style.height = `${dynmapImg.clientHeight}px`;
-        grid.style.position = 'absolute';
-        grid.style.top = `${dynmapImg.offsetTop}px`;
-        grid.style.left = `${dynmapImg.offsetLeft}px`;
+    filteredPlots.forEach(plot => {
+        const [[x1, y1], [x2, y2]] = plot.coordinates;
+        const plotDiv = document.createElement('div');
+        plotDiv.className = 'plot';
+        plotDiv.style.position = 'absolute';
+        plotDiv.style.border = `2px solid ${plot.borderColor}`;
+        plotDiv.style.backgroundColor = `${plot.fillColor}4D`; // 30% opacity
 
-        // Iterate through the plots and add only those that match the current sector
-        plotsData.plots.forEach(plot => {
-            if (plot.sector === currentSector) {
-                const plotDiv = document.createElement('div');
-                plotDiv.className = 'plot';
-                plotDiv.style.position = 'absolute';
-                plotDiv.style.border = `2px solid ${plot.borderColor}`;
-                plotDiv.style.backgroundColor = `${plot.fillColor}4D`; // 30% opacity
+        // Get the image dimensions for correct positioning
+        const dynmapImg = document.getElementById('dynmap-img');
+        const gridWidth = dynmapImg.clientWidth;
+        const gridHeight = dynmapImg.clientHeight;
+        
+        // Calculate plot dimensions based on the coordinates
+        const width = Math.abs(x2 - x1) * gridWidth;
+        const height = Math.abs(y2 - y1) * gridHeight;
+        const left = Math.min(x1, x2) * gridWidth;
+        const top = Math.min(y1, y2) * gridHeight;
+        
+        plotDiv.style.width = `${width}px`;
+        plotDiv.style.height = `${height}px`;
+        plotDiv.style.left = `${left}px`;
+        plotDiv.style.top = `${top}px`;
 
-                // Calculate the position and size based on coordinates and image dimensions
-                const x1 = plot.coordinates[0][0] * dynmapImg.clientWidth;
-                const y1 = plot.coordinates[0][1] * dynmapImg.clientHeight;
-                const x2 = plot.coordinates[1][0] * dynmapImg.clientWidth;
-                const y2 = plot.coordinates[1][1] * dynmapImg.clientHeight;
+        // Display the title inside the plot div
+        plotDiv.textContent = plot.title;
+        plotDiv.style.color = 'white';
+        plotDiv.style.display = 'flex';
+        plotDiv.style.alignItems = 'center';
+        plotDiv.style.justifyContent = 'center';
+        plotDiv.style.fontSize = '12px';
+        plotDiv.style.textAlign = 'center';
 
-                plotDiv.style.width = `${Math.abs(x2 - x1)}px`;
-                plotDiv.style.height = `${Math.abs(y2 - y1)}px`;
-                plotDiv.style.left = `${Math.min(x1, x2)}px`;
-                plotDiv.style.top = `${Math.min(y1, y2)}px`;
+        // Click event for showing description
+        plotDiv.onclick = () => {
+            const description = document.getElementById('plot-description');
+            description.textContent = plot.description;
+            description.classList.remove('hidden');
+        };
 
-                // Create a span for the title and add it to the plotDiv
-                const titleSpan = document.createElement('span');
-                titleSpan.textContent = plot.title;
-                titleSpan.style.color = '#ffffff'; // White text for visibility
-                titleSpan.style.position = 'absolute';
-                titleSpan.style.top = '50%';
-                titleSpan.style.left = '50%';
-                titleSpan.style.transform = 'translate(-50%, -50%)';
-                titleSpan.style.textAlign = 'center';
-                titleSpan.style.fontSize = '10px'; // Adjust for readability
-
-                plotDiv.appendChild(titleSpan);
-
-                // Add an onclick event to display the plot description
-                plotDiv.onclick = () => {
-                    const description = document.getElementById('plot-description');
-                    description.textContent = plot.description;
-                    description.classList.remove('hidden');
-                };
-
-                // Append the plotDiv to the grid
-                grid.appendChild(plotDiv);
-            }
-        });
-    };
-
-    // Trigger the onload event if the image is already loaded
-    if (dynmapImg.complete) {
-        dynmapImg.onload();
-    }
+        console.log(plot.title, width, height, left, top);
+        grid.appendChild(plotDiv);
+    });
 }
 
 
@@ -134,11 +128,11 @@ function toggleMode() {
 document.getElementById('mode-toggle').addEventListener('click', toggleMode);
 
 // Fetch configuration, sectors, and plots on page load
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const sectorDropdown = document.getElementById('sector-dropdown');
-    fetchConfig();
-    fetchSectors();
-    fetchPlots(sectorDropdown.value);
+    await fetchConfig();
+    await fetchSectors();
+    await fetchPlots(sectorDropdown.value);
 
     // Event listener to call fetchPlots whenever the sector changes
     sectorDropdown.addEventListener('change', () => {
