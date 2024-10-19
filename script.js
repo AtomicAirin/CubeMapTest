@@ -34,6 +34,13 @@ async function fetchSectors() {
         const dynmapImg = document.getElementById('dynmap-img');
         dynmapImg.src = this.value; // Update image source to selected sector URL
     });
+
+    // Optionally, load the initial sector image when the dropdown is first populated
+    if (sectors.length > 0) {
+        const initialSector = sectors[0];
+        const dynmapImg = document.getElementById('dynmap-img');
+        dynmapImg.src = initialSector.imagePath; // Set the initial image path
+    }
 }
 
 // Function to set the grid size based on the image size
