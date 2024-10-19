@@ -39,7 +39,7 @@ Try to pick the most specific option:
 Submissions to "Global" will appear on zoomed-in quadrant maps that they fit within. Otherwise, there is no cross-listing of maps.
 
 ### My base doesn't really fit in a rectangle.
-Try your best to approximate it, avoiding extensive overlap with unclaimed land.
+No worries! Just try to approximate it, prioritizing the avoidance of unclaimed land.
 
 ### I want to change/remove a submission (color, size, name, etc.).
 Option 1: Select "I'm updating an entry" in the Google Form linked above.
