@@ -24,7 +24,7 @@ async function fetchSectors() {
     // Populate dropdown with options
     for (const sector of sectors) {
         const option = document.createElement('option');
-        option.value = sector.imagePath; // Set the value to the URL
+        option.value = sector.url; // Set the value to the URL
         option.textContent = sector.name; // Set the displayed text
         sectorDropdown.appendChild(option);
     }
@@ -39,7 +39,7 @@ async function fetchSectors() {
     if (sectors.length > 0) {
         const initialSector = sectors[0];
         const dynmapImg = document.getElementById('dynmap-img');
-        dynmapImg.src = initialSector.imagePath; // Set the initial image path
+        dynmapImg.src = initialSector.url; // Set the initial image path
     }
 }
 
