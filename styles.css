@@ -54,6 +54,7 @@ body.dark-mode #sidebar {
 }
 
 #sector-dropdown {
+    font-family: 'Inter', sans-serif;
     appearance: none; /* Remove default styles */
     padding: 10px;
     border-radius: 5px;
@@ -63,6 +64,7 @@ body.dark-mode #sidebar {
 }
 
 .toggle-button {
+    font-family: 'Inter', sans-serif;
     background-color: #ccc; /* Light mode button color */
     border: none;
     border-radius: 5px;
