@@ -4,7 +4,11 @@ An interactive/informational map for CubeKrowd's su1! Includes bases, shops, and
 
 ## How do I submit my own base/shop/etc?
 
-### Option 1: Pull Request
+### Option 1: Google Form
+
+Fill out [this Google form](https://www.example.com).
+
+### Option 2: Pull Request
 
 Make a pull request adding the area you wish to identify to `plots.yaml`. The format is as follows:
 
@@ -18,9 +22,5 @@ Make a pull request adding the area you wish to identify to `plots.yaml`. The fo
       - [1000, 1500]  # (x1, y1) - First corner, like a WorldEdit selection.
       - [1200, 1650]  # (x2, y2) - Second corner.
 ```
-
-### Option 2: Google Form
-
-Fill out [this Google form](https://www.example.com) with the information above.
 
 *To ensure speedy entry, please notify Kaybeo on Discord once you submit a PR or Google Form.*
