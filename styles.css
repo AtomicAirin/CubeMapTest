@@ -31,9 +31,15 @@ body.dark-mode #sidebar {
 #dynmap {
     flex: 1; /* Take the remaining space */
     display: flex;
+    flex-direction: row;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     position: relative; /* Relative position for grid overlay */
+}
+
+#dynmap-img {
+    width: calc(100% - 250px); /* Adjust based on sidebar width */
+    max-height: 80vh; /* Maintain max height */
 }
 
 #grid {
