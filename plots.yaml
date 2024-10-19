@@ -1,26 +1,27 @@
-- title: "Forest Area"
-  description: "A dense forest area with rich biodiversity."
-  sector: "north"
-  fillColor: "#008000"
-  borderColor: "#004d00"
-  coordinates:
-    - [0.1, 0.2]  # (x1, y1)
-    - [0.3, 0.4]  # (x2, y2)
-    
-- title: "Desert Zone"
-  description: "An arid desert zone with sand dunes."
-  sector: "south"
-  fillColor: "#f4a460"
-  borderColor: "#8b4513"
-  coordinates:
-    - [0.5, 0.5]  # (x1, y1)
-    - [0.8, 0.7]  # (x2, y2)
-    
-- title: "Mountain Range"
-  description: "A rocky mountain range with high peaks."
-  sector: "west"
-  fillColor: "#708090"
-  borderColor: "#2f4f4f"
-  coordinates:
-    - [0.2, 0.6]  # (x1, y1)
-    - [0.4, 0.9]  # (x2, y2)
+plots:
+  - title: "Forest Area"
+    description: "A dense forest area with rich biodiversity."
+    sector: "north"
+    fillColor: "#008000"
+    borderColor: "#004d00"
+    coordinates:
+      - [0.1, 0.2]  # (x1, y1)
+      - [0.3, 0.4]  # (x2, y2)
+      
+  - title: "Desert Zone"
+    description: "An arid desert zone with sand dunes."
+    sector: "south"
+    fillColor: "#f4a460"
+    borderColor: "#8b4513"
+    coordinates:
+      - [0.5, 0.5]  # (x1, y1)
+      - [0.8, 0.7]  # (x2, y2)
+      
+  - title: "Mountain Range"
+    description: "A rocky mountain range with high peaks."
+    sector: "west"
+    fillColor: "#708090"
+    borderColor: "#2f4f4f"
+    coordinates:
+      - [0.2, 0.6]  # (x1, y1)
+      - [0.4, 0.9]  # (x2, y2)
