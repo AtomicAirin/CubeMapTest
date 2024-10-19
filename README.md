@@ -8,7 +8,7 @@ An interactive/informational map for CubeKrowd's su1! Includes bases, shops, and
 
 ### Option 1: Google Form
 
-Fill out [this Google form](https://www.example.com).
+Fill out [this Google form](https://forms.gle/AFC7trTuWZtGDRMX8).
 
 ### Option 2: Pull Request
 
