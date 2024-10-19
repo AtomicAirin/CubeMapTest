@@ -88,21 +88,24 @@ body.dark-mode .toggle-button {
 
 footer {
     margin-top: auto; /* Push footer to the bottom */
-    text-align: center; /* Center footer text */
-    padding: 10px 0;
+    padding: 10px 20px; /* Modify this line for better padding */
+    flex-shrink: 0; /* Add this line to prevent footer from shrinking */
+    text-align: center;
+}
+
+.footer-item {
+    margin: 0 10px; /* Space between items */
+}
+
+.footer-item a {
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit color for the footer item */
 }
 
 #app {
     display: flex; /* Use flex for layout */
     flex: 1; /* Take the remaining space */
     overflow: hidden; /* Prevent overflow in the app area */
-}
-
-#sidebar {
-    width: 250px; /* Fixed width for sidebar */
-    height: 100vh; /* Full height for the sidebar */
-    overflow-y: auto; /* Allows scrolling for long lists */
-    background-color: #f0f0f0; /* Optional: light background for contrast */
 }
 
 #map {
@@ -114,8 +117,4 @@ footer {
     position: relative; /* Position for absolute elements inside if needed */
 }
 
-footer {
-    padding: 10px 20px; /* Modify this line for better padding */
-    flex-shrink: 0; /* Add this line to prevent footer from shrinking */
-    text-align: center;
-}
+
