@@ -1,6 +1,6 @@
 # CubeMap
 
-An interactive/informational map for CubeKrowd and a few of its key locations.
+An interactive/informational map for CubeKrowd's su1! Includes bases, shops, and more.
 
 ## How do I submit my own base/shop/etc?
 
