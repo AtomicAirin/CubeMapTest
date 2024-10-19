@@ -21,8 +21,8 @@ Make a pull request adding the area you wish to identify to `plots.yaml`. The fo
     fillColor: "#008000" # Box fill color in hex, reduced to 30% opacity on the actual map.
     borderColor: "#004d00" # Box border color in hex, reduced to 80% opacity on the actual map.
     coordinates:
-      - [1000, 1500]  # (x1, y1) - First corner, like a WorldEdit selection.
-      - [1200, 1650]  # (x2, y2) - Second corner.
+      - [1000, 1500]  # (x1, z1) - First corner, like a WorldEdit selection.
+      - [1200, 1650]  # (x2, z2) - Second corner.
 ```
 
 *To ensure speedy entry, please notify Kaybeo on Discord once you submit a PR or Google Form.*
