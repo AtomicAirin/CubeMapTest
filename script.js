@@ -46,20 +46,6 @@ function adjustGridSize() {
     grid.style.height = `${dynmapImg.naturalHeight}px`;
 }
 
-// Listen for image load event to adjust the grid size
-const dynmapImg = document.getElementById('dynmap-img');
-dynmapImg.onload = () => {
-    adjustGridSize();
-    const currentSector = document.getElementById('sector-select').value;
-    fetchPlots(currentSector);
-};
-
-document.getElementById('sector-select').addEventListener('change', (event) => {
-    const selectedSector = event.target.value;
-    console.log(selectedSector);
-    fetchPlots(selectedSector);
-});
-
 // Function to fetch the plots from plots.yaml
 async function fetchPlots(currentSector) {
     const response = await fetch('plots.yaml');
@@ -134,9 +120,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     await fetchSectors();
     await fetchPlots(sectorDropdown.value);
 
-    // Event listener to call fetchPlots whenever the sector changes
-    sectorDropdown.addEventListener('change', () => {
-        const selectedSector = sectorDropdown.value;
+    // Listen for image load event to adjust the grid size
+    const dynmapImg = document.getElementById('dynmap-img');
+    dynmapImg.onload = () => {
+        adjustGridSize();
+        const currentSector = document.getElementById('sector-select').value;
+        fetchPlots(currentSector);
+    };
+    
+    document.getElementById('sector-select').addEventListener('change', (event) => {
+        const selectedSector = event.target.value;
+        console.log(selectedSector);
         fetchPlots(selectedSector);
     });
 });
