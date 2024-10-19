@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchSectors(); // Ensure this function is defined and works correctly
 
     // Wait for the sector dropdown to be available
-    waitForElement('#sector-select', (sectorDropdown) => {
+    waitForElement('#sector-dropdown', (sectorDropdown) => {
         fetchPlots(sectorDropdown.value); // Fetch plots for the currently selected sector
 
         // Listen for changes on the dropdown
