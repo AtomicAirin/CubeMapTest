@@ -41,9 +41,12 @@ function adjustGridSize() {
     const dynmapImg = document.getElementById('dynmap-img');
     const grid = document.getElementById('grid');
 
-    // Set grid dimensions to match the image
-    grid.style.width = `${80/90*dynmapImg.clientWidth}px`;
-    grid.style.height = `${80/90*dynmapImg.clientHeight}px`;
+    // Get the dimensions of the image itself, excluding padding, borders, and margins
+    const rect = dynmapImg.getBoundingClientRect();
+
+    // Set grid dimensions to match the image dimensions
+    grid.style.width = `${rect.width}px`;
+    grid.style.height = `${rect.height}px`;
 }
 
 // Listen for image load event to adjust the grid size
@@ -122,7 +125,6 @@ async function fetchPlots(currentSector) {
 }
 
 
-
 // Function to toggle between light and dark mode
 function toggleMode() {
     document.body.classList.toggle('dark-mode');
@@ -132,8 +134,15 @@ function toggleMode() {
 document.getElementById('mode-toggle').addEventListener('click', toggleMode);
 
 // Fetch configuration, sectors, and plots on page load
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
+    const sectorDropdown = document.getElementById('sector-dropdown');
     await fetchConfig();
-    await fetchPlots();
     await fetchSectors();
+    await fetchPlots(sectorDropdown.value);
+
+    // Event listener to call fetchPlots whenever the sector changes
+    sectorDropdown.addEventListener('change', () => {
+        const selectedSector = sectorDropdown.value;
+        fetchPlots(selectedSector);
+    });
 });
