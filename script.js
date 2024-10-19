@@ -50,53 +50,77 @@ function adjustGridSize() {
 document.getElementById('dynmap-img').addEventListener('load', adjustGridSize);
 
 // Function to fetch the plots from plots.yaml
-async function fetchPlots() {
+async function fetchPlots(currentSector) {
     const response = await fetch('plots.yaml');
     const plotsText = await response.text();
-    const plots = jsyaml.load(plotsText);
+    const plotsData = jsyaml.load(plotsText);
     const grid = document.getElementById('grid');
+    const dynmapImg = document.getElementById('dynmap-img');
 
-    // Clear existing plots
-    adjustGridSize();
-    
-    // Iterate through plots and set their positions
-    for (let i = 0; i < plots.length; i++) {
-        const plot = plots[i];
-        const plotDiv = document.createElement('div');
-        plotDiv.className = 'plot';
-        plotDiv.style.borderColor = plot.borderColor;
-        plotDiv.style.backgroundColor = plot.fillColor + '4D'; // 30% opacity
-        plotDiv.style.position = 'absolute';
-        plotDiv.style.width = `${plot.width * grid.clientWidth}px`;
-        plotDiv.style.height = `${plot.height * grid.clientHeight}px`;
-        plotDiv.style.left = `${plot.x * grid.clientWidth}px`;
-        plotDiv.style.top = `${plot.y * grid.clientHeight}px`;
+    // Clear previous plots
+    grid.innerHTML = '';
 
-        // Create a span element for the title and add it to the plotDiv
-        const titleSpan = document.createElement('span');
-        titleSpan.textContent = plot.title;
-        titleSpan.style.position = 'absolute';
-        titleSpan.style.top = '50%';
-        titleSpan.style.left = '50%';
-        titleSpan.style.transform = 'translate(-50%, -50%)';
-        titleSpan.style.fontSize = '12px'; // Adjust as needed
-        titleSpan.style.color = '#ffffff'; // Adjust for visibility
-        titleSpan.style.textAlign = 'center';
-        plotDiv.appendChild(titleSpan);
+    // Ensure the image is loaded before accessing its dimensions
+    dynmapImg.onload = () => {
+        // Set the grid dimensions to match the image dimensions
+        grid.style.width = `${dynmapImg.clientWidth}px`;
+        grid.style.height = `${dynmapImg.clientHeight}px`;
+        grid.style.position = 'absolute';
+        grid.style.top = `${dynmapImg.offsetTop}px`;
+        grid.style.left = `${dynmapImg.offsetLeft}px`;
 
-        // Add an onclick event to display the plot description
-        plotDiv.onclick = () => {
-            const description = document.getElementById('plot-description');
-            description.textContent = plot.description;
-            description.classList.remove('hidden');
-        };
+        // Iterate through the plots and add only those that match the current sector
+        plotsData.plots.forEach(plot => {
+            if (plot.sector === currentSector) {
+                const plotDiv = document.createElement('div');
+                plotDiv.className = 'plot';
+                plotDiv.style.position = 'absolute';
+                plotDiv.style.border = `2px solid ${plot.borderColor}`;
+                plotDiv.style.backgroundColor = `${plot.fillColor}4D`; // 30% opacity
 
-        console.log(plot.title, plotDiv.style, titleSpan.style);
+                // Calculate the position and size based on coordinates and image dimensions
+                const x1 = plot.coordinates[0][0] * dynmapImg.clientWidth;
+                const y1 = plot.coordinates[0][1] * dynmapImg.clientHeight;
+                const x2 = plot.coordinates[1][0] * dynmapImg.clientWidth;
+                const y2 = plot.coordinates[1][1] * dynmapImg.clientHeight;
 
-        // Append the plotDiv to the grid
-        grid.appendChild(plotDiv);
+                plotDiv.style.width = `${Math.abs(x2 - x1)}px`;
+                plotDiv.style.height = `${Math.abs(y2 - y1)}px`;
+                plotDiv.style.left = `${Math.min(x1, x2)}px`;
+                plotDiv.style.top = `${Math.min(y1, y2)}px`;
+
+                // Create a span for the title and add it to the plotDiv
+                const titleSpan = document.createElement('span');
+                titleSpan.textContent = plot.title;
+                titleSpan.style.color = '#ffffff'; // White text for visibility
+                titleSpan.style.position = 'absolute';
+                titleSpan.style.top = '50%';
+                titleSpan.style.left = '50%';
+                titleSpan.style.transform = 'translate(-50%, -50%)';
+                titleSpan.style.textAlign = 'center';
+                titleSpan.style.fontSize = '10px'; // Adjust for readability
+
+                plotDiv.appendChild(titleSpan);
+
+                // Add an onclick event to display the plot description
+                plotDiv.onclick = () => {
+                    const description = document.getElementById('plot-description');
+                    description.textContent = plot.description;
+                    description.classList.remove('hidden');
+                };
+
+                // Append the plotDiv to the grid
+                grid.appendChild(plotDiv);
+            }
+        });
+    };
+
+    // Trigger the onload event if the image is already loaded
+    if (dynmapImg.complete) {
+        dynmapImg.onload();
     }
 }
+
 
 
 // Function to toggle between light and dark mode
