@@ -9,7 +9,7 @@ An interactive/informational map for CubeKrowd's su1! Includes bases, shops, and
 Make a pull request adding the area you wish to identify to `plots.yaml`. The format is as follows:
 
 ```yaml
-  - title: "Kaybeo's Base" # Please keep concise (~20 chars max) and distinct.
+  - title: "Kaybeo's Base" # Please keep concise (~25 chars max) and distinct.
     description: "Kaybeo lives here! Feel free to stop by." # Try to keep on the shorter side (~300 chars max).
     sector: "Global" # Which map to display on. Options: "Global", "Shopping District", and "Spawn".
     fillColor: "#008000" # Box fill color in hex, reduced to 30% opacity on the actual map.
