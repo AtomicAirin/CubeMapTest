@@ -3,61 +3,58 @@
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    display: flex; /* Ensure body is a flex container */
-    min-height: 100vh; /* Full height for the body */
+    display: flex;
+    min-height: 100vh;
 }
 
-body.dark-mode {
-    background-color: #121212; /* Dark mode background */
-}
+body.dark-mode { background-color: #121212; }
 
 #sidebar {
-    background-color: #fff; /* Light mode sidebar */
+    background-color: #fff;
     color: #000;
     width: 250px;
     display: flex;
     flex-direction: column;
     padding: 20px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
-    height: 100vh; /* Full height */
+    height: 100vh;
 }
 
 body.dark-mode #sidebar {
-    background-color: #333; /* Dark mode sidebar */
+    background-color: #333;
     color: #fff;
+}
+
+#dynmap, #dynmap-img, #grid {
+    width: 100vh;
+    height: 100vh;
 }
 
 #dynmap {
     flex-direction: row;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    position: relative; /* Relative position for grid overlay */
-    width: 100vh;
-    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    position: relative;
     overflow: scroll;
 }
 
 #dynmap-img {
-    height: 100vh;
-    width: 100vh;
     object-fit: cover;
 }
 
 #grid {
-    position: absolute; /* Position the grid on top of the dynmap */
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100vh; /* Full width */
-    height: 100vh; /* Full height */
-    pointer-events: none; /* Allow clicks to pass through */
+    pointer-events: none;
 }
 
 .plot {
-    position: absolute; /* Allow for absolute positioning of plots */
-    border: 2px solid; /* Solid border */
-    cursor: pointer; /* Pointer cursor on hover */
-    pointer-events: auto; /* Enable interactions */
-    transition: all 0.2s ease; /* Smooth transitions */
+    position: absolute;
+    border: 2px solid;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: all 0.2s ease;
 }
 
 .plot-info {
@@ -71,70 +68,64 @@ body.dark-mode #sidebar {
 
 #sector-dropdown {
     font-family: 'Inter', sans-serif;
-    appearance: none; /* Remove default styles */
+    appearance: none;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    background: white url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><polygon points="0,0 10,10 20,0" fill="gray"/></svg>') no-repeat right 10px center; /* Custom dropdown arrow */
-    background-size: 10px; /* Size of the custom arrow */
+    background: white url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><polygon points="0,0 10,10 20,0" fill="gray"/></svg>') no-repeat right 10px center;
+    background-size: 10px;
 }
 
 .toggle-button {
     font-family: 'Inter', sans-serif;
-    background-color: #ccc; /* Light mode button color */
+    background-color: #ccc;
     border: none;
     border-radius: 5px;
     padding: 10px;
     cursor: pointer;
-    transition: background-color 0.3s; /* Transition for background color */
-    margin-top: 10px; /* Spacing */
+    transition: background-color 0.3s;
+    margin-top: 10px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 body.light-mode .toggle-button {
-    background-color: #f0f0f0; /* Light background */
-    color: #000; /* Dark text */
+    background-color: #f0f0f0;
+    color: #000;
 }
 
 body.dark-mode .toggle-button {
-    background-color: #444; /* Dark mode button color */
-    color: #fff; /* Light text */
+    background-color: #444;
+    color: #fff;
 }
 
-.hidden {
-    display: none; /* Hide elements when needed */
-}
+.hidden { display: none; }
 
 .footer {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: auto; /* Push footer to the bottom */
-    padding: 30px 0px; /* Modify this line for better padding */
-    flex-shrink: 0; /* Add this line to prevent footer from shrinking */
+    margin-top: auto;
+    padding: 30px 0;
+    flex-shrink: 0;
     text-align: center;
 }
 
 .footer-item {
-    margin: 2px 0px; /* Space between items */
+    margin: 2px 0;
 }
 
 .footer-item a {
-    text-decoration: none; /* Remove underline from links */
-    color: inherit; /* Inherit color for the footer item */
+    text-decoration: none;
+    color: inherit;
 }
 
-#app {
-    display: flex; /* Use flex for layout */
-    flex: 1; /* Take the remaining space */
+#app, #map {
+    display: flex;
+    flex: 1;
 }
 
 #map {
-    flex: 1; /* Take the remaining space */
-    display: flex; /* Flex container for the map */
-    justify-content: center; /* Center the dynmap */
-    align-items: center; /* Center vertically */
-    position: relative; /* Position for absolute elements inside if needed */
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
-
-
