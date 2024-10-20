@@ -47,10 +47,9 @@ body.dark-mode #sidebar {
     position: absolute; /* Position the grid on top of the dynmap */
     top: 0;
     left: 0;
-    width: 90vh; /* Full width */
-    height: 90vh; /* Full height */
+    width: 100vh; /* Full width */
+    height: 100vh; /* Full height */
     pointer-events: none; /* Allow clicks to pass through */
-    padding: 5vh;
 }
 
 .plot {
