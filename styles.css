@@ -61,6 +61,15 @@ body.dark-mode #sidebar {
     transition: all 0.2s ease; /* Smooth transitions */
 }
 
+.plot-info {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 10px;
+    color: white;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 #sector-dropdown {
     font-family: 'Inter', sans-serif;
     appearance: none; /* Remove default styles */
