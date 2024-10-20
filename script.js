@@ -45,14 +45,14 @@ async function fetchSectors() {
 }
 
 // Function to set the grid size based on the image size
-function adjustGridSize() {
-    const dynmapImg = document.getElementById('dynmap-img');
-    const grid = document.getElementById('grid');
+// function adjustGridSize() {
+//     const dynmapImg = document.getElementById('dynmap-img');
+//     const grid = document.getElementById('grid');
 
-    // Set grid dimensions to match the image dimensions
-    grid.style.width = `100vh`;
-    grid.style.height = `100vh`;
-}
+//     // Set grid dimensions to match the image dimensions
+//     grid.style.width = `100vh`;
+//     grid.style.height = `100vh`;
+// }
 
 // Function to fetch the plots from plots.yaml
 async function fetchPlots(currentSector) {
@@ -156,9 +156,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Wait for the dynmap image to be available
     waitForElement('#dynmap-img', (dynmapImg) => {
         console.log("Image Change");
-        dynmapImg.onload = () => {
-            adjustGridSize(); // Adjust grid size when image loads
-        };
+        // dynmapImg.onload = () => {
+        //     adjustGridSize(); // Adjust grid size when image loads
+        // };
     });
 });
 
