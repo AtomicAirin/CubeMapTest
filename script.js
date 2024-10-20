@@ -50,8 +50,8 @@ function adjustGridSize() {
     const grid = document.getElementById('grid');
 
     // Set grid dimensions to match the image dimensions
-    grid.style.width = `${dynmapImg.naturalWidth}px`;
-    grid.style.height = `${dynmapImg.naturalHeight}px`;
+    grid.style.width = `100vh`;
+    grid.style.height = `100vh`;
 }
 
 // Function to fetch the plots from plots.yaml
@@ -104,7 +104,9 @@ async function fetchPlots(currentSector) {
 
         // Click event for showing description
         plotDiv.onclick = () => {
+            const title = document.getElementById('plot-title');
             const description = document.getElementById('plot-description');
+            title.textContent = plot.title;
             description.textContent = plot.description;
             description.classList.remove('hidden');
         };
