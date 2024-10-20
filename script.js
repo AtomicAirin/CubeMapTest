@@ -135,10 +135,10 @@ function waitForElement(selector, callback) {
     }, 100); // Check every 100 milliseconds
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     console.log("Loaded");
-    fetchConfig(); // Ensure this function is defined and works correctly
-    fetchSectors(); // Ensure this function is defined and works correctly
+    await fetchConfig(); // Ensure this function is defined and works correctly
+    await fetchSectors(); // Ensure this function is defined and works correctly
 
     // Wait for the sector dropdown to be available
     waitForElement('#sector-dropdown', (sectorDropdown) => {
