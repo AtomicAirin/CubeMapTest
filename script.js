@@ -137,6 +137,7 @@ function waitForElement(selector, callback) {
 
 document.addEventListener('DOMContentLoaded', async () => {
     console.log("Loaded");
+    document.body.classList.add('dark-mode');
     await fetchConfig(); // Ensure this function is defined and works correctly
     await fetchSectors(); // Ensure this function is defined and works correctly
 
