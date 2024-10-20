@@ -24,8 +24,8 @@ jobs:
 
     - name: Shopping District
       run: |
-        dynmap-timemachine.py https://dynmap.cubekrowd.net/ survival flat [12238,64,-3625] [4,4] 1 ShoppingDistrict.png
+        dynmap-timemachine.py https://dynmap.cubekrowd.net/ survival flat [12238,64,-3625] [4,4] 1 assets2/ShoppingDistrict.png
 
     - name: Spawn
       run: |
-        dynmap-timemachine.py https://dynmap.cubekrowd.net/ survival flat [12300,64,-3000] [4,4] 1 Spawn.png
+        dynmap-timemachine.py https://dynmap.cubekrowd.net/ survival flat [12300,64,-3000] [4,4] 1 assets2/Spawn.png
