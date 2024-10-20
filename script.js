@@ -54,6 +54,52 @@ async function fetchSectors() {
 //     grid.style.height = `100vh`;
 // }
 
+function squarePlot(plot) {
+    const [[x1, y1], [x2, y2]] = plot.coordinates;
+    const plotDiv = document.createElement('div');
+    plotDiv.className = 'plot';
+    plotDiv.style.position = 'absolute';
+    plotDiv.style.border = `2px solid ${plot.borderColor}`;
+    plotDiv.style.backgroundColor = `${plot.fillColor}4D`; // 30% opacity
+
+    // Get the image dimensions for correct positioning
+    const dynmapImg = document.getElementById('dynmap-img');
+    const gridWidth = dynmapImg.clientWidth;
+    const gridHeight = dynmapImg.clientHeight;
+    
+    // Calculate plot dimensions based on the coordinates
+    const width = Math.abs(x2 - x1) * gridWidth;
+    const height = Math.abs(y2 - y1) * gridHeight;
+    const left = Math.min(x1, x2) * gridWidth;
+    const top = Math.min(y1, y2) * gridHeight;
+    
+    plotDiv.style.width = `${width}px`;
+    plotDiv.style.height = `${height}px`;
+    plotDiv.style.left = `${left}px`;
+    plotDiv.style.top = `${top}px`;
+
+    // Display the title inside the plot div
+    plotDiv.textContent = plot.title;
+    plotDiv.style.color = 'white';
+    plotDiv.style.display = 'flex';
+    plotDiv.style.alignItems = 'center';
+    plotDiv.style.justifyContent = 'center';
+    plotDiv.style.fontSize = '12px';
+    plotDiv.style.textAlign = 'center';
+
+    // Click event for showing description
+    plotDiv.onclick = () => {
+        const title = document.getElementById('plot-title');
+        const description = document.getElementById('plot-description');
+        title.textContent = plot.title;
+        description.textContent = plot.description;
+        description.classList.remove('hidden');
+    };
+
+    console.log(plot.title, width, height, left, top);
+    grid.appendChild(plotDiv);
+}
+
 // Function to fetch the plots from plots.yaml
 async function fetchPlots(currentSector) {
     console.log("Fetching Plots");
@@ -70,49 +116,7 @@ async function fetchPlots(currentSector) {
     console.log(plots, filteredPlots, currentSector);
 
     filteredPlots.forEach(plot => {
-        const [[x1, y1], [x2, y2]] = plot.coordinates;
-        const plotDiv = document.createElement('div');
-        plotDiv.className = 'plot';
-        plotDiv.style.position = 'absolute';
-        plotDiv.style.border = `2px solid ${plot.borderColor}`;
-        plotDiv.style.backgroundColor = `${plot.fillColor}4D`; // 30% opacity
-
-        // Get the image dimensions for correct positioning
-        const dynmapImg = document.getElementById('dynmap-img');
-        const gridWidth = dynmapImg.clientWidth;
-        const gridHeight = dynmapImg.clientHeight;
-        
-        // Calculate plot dimensions based on the coordinates
-        const width = Math.abs(x2 - x1) * gridWidth;
-        const height = Math.abs(y2 - y1) * gridHeight;
-        const left = Math.min(x1, x2) * gridWidth;
-        const top = Math.min(y1, y2) * gridHeight;
-        
-        plotDiv.style.width = `${width}px`;
-        plotDiv.style.height = `${height}px`;
-        plotDiv.style.left = `${left}px`;
-        plotDiv.style.top = `${top}px`;
-
-        // Display the title inside the plot div
-        plotDiv.textContent = plot.title;
-        plotDiv.style.color = 'white';
-        plotDiv.style.display = 'flex';
-        plotDiv.style.alignItems = 'center';
-        plotDiv.style.justifyContent = 'center';
-        plotDiv.style.fontSize = '12px';
-        plotDiv.style.textAlign = 'center';
-
-        // Click event for showing description
-        plotDiv.onclick = () => {
-            const title = document.getElementById('plot-title');
-            const description = document.getElementById('plot-description');
-            title.textContent = plot.title;
-            description.textContent = plot.description;
-            description.classList.remove('hidden');
-        };
-
-        console.log(plot.title, width, height, left, top);
-        grid.appendChild(plotDiv);
+        squarePlot(plot);
     });
 }
 
@@ -155,11 +159,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     // Wait for the dynmap image to be available
-    waitForElement('#dynmap-img', (dynmapImg) => {
-        console.log("Image Change");
-        // dynmapImg.onload = () => {
-        //     adjustGridSize(); // Adjust grid size when image loads
-        // };
-    });
+    // waitForElement('#dynmap-img', (dynmapImg) => {
+    //     console.log("Image Change");
+    //     // dynmapImg.onload = () => {
+    //     //     adjustGridSize(); // Adjust grid size when image loads
+    //     // };
+    // });
 });
 
