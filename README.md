@@ -47,10 +47,10 @@ Area names are not shown for dots unless hovered over or clicked on; dots are be
 ### My build doesn't really fit in a rectangle or a circle.
 No worries! Just try to approximate it, prioritizing the avoidance of unclaimed land, or consider a dot for small builds.
 
-### I want to change/remove a submission (color, size, name, etc.).
+### I want to update, change, or remove a submission.
 Option 1: Select "I'm updating an entry" in the Google Form linked above.
 
 Option 2: Submit an appropriate pull request.
 
 ### How often does the Dynmap update on this website?
-A script to update the maps begins every hour, taking some minutes to complete.
+Every hour-ish, slowed somewhat by the runtime. 
