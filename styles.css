@@ -12,13 +12,13 @@ body {
 
 /* Sidebar styling */
 #sidebar {
-    background-color: #161616; /* Dark sidebar */
+    background-color: #242424; /* Dark sidebar */
     color: #e9e9e9; /* Light text */
     width: 15vw;
     display: flex;
     flex-direction: column;
     padding: 20px;
-    box-shadow: 20px 20px 60px #131313, -20px -20px 60px #191919; /* Darker shadow */
+    box-shadow: 10px 10px 21px #1f1f1f, -10px -10px 21px #292929; /* Darker shadow */
     max-height: 100vh;
     min-width: 200px;
 }
@@ -68,12 +68,12 @@ label {
 
 /* Plot info styling */
 #plot-info {
-    background-color: #161616; /* Dark background */
+    background-color: #242424; /* Dark background */
     color: #e9e9e9; /* Light text */
     padding: 10px;
     border-radius: 8px;
     margin-top: 10px;
-    box-shadow: 20px 20px 60px #131313, -20px -20px 60px #191919; /* Subtle shadow */
+    box-shadow: 10px 10px 21px #1f1f1f, -10px -10px 21px #292929; /* Subtle shadow */
 }
 
 #plot-title, #plot-description {
@@ -89,9 +89,9 @@ label {
     font-family: 'Inter', sans-serif;
     padding: 10px;
     border-radius: 5px;
-    background-color: #161616; /* Dark dropdown background */
+    background-color: #242424; /* Dark dropdown background */
     color: #e9e9e9; /* Light text */
-    box-shadow: 20px 20px 60px #131313, -20px -20px 60px #191919;
+    box-shadow: 10px 10px 21px #1f1f1f, -10px -10px 21px #292929;
 }
 
 /* Hidden class for elements that should not display */
@@ -107,9 +107,9 @@ label {
     margin-top: auto;
     padding: 10px;
     border-radius: 8px;
-    background-color: #161616; /* Dark footer */
+    background-color: #242424; /* Dark footer */
     color: #e9e9e9; /* Light text */
-    box-shadow: 20px 20px 60px #131313, -20px -20px 60px #191919;
+    box-shadow: 10px 10px 21px #1f1f1f, -10px -10px 21px #292929;
     flex-shrink: 0;
     text-align: center;
 }
