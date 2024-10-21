@@ -19,7 +19,6 @@ body {
     flex-direction: column;
     padding: 20px;
     box-shadow: 8px 8px 16px #101010, -8px -8px 16px #1c1c1c; /* Darker shadow */
-    max-height: 100vh;
     min-width: 200px;
 }
 
