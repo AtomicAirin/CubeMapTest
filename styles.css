@@ -77,13 +77,13 @@ label {
 
 .plot:hover {
     opacity: 1.0;
-    font-size: 11px;
+    font-size: 11px !important;
     font-weight: 500;
     text-shadow: 2px 2px 3px black;
 }
 
 .plot:active {
-    font-size: 10.5px;
+    font-size: 10.5px !important;
     scale: 0.96;
 }
 
