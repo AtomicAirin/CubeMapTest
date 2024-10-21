@@ -13,7 +13,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
-        persist-credentials: false  # Disable automatic token usage for security
+        token: ${{ secrets.GITHUB_TOKEN }} # Ensure the token is set properly for checkout
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -35,10 +35,10 @@ jobs:
 
     - name: Commit and push changes
       run: |
-        git config --global user.email "github-actions@github.com"
-        git config --global user.name "GitHub Action"
-        git add assets2/ShoppingDistrict.png assets2/Spawn.png
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add assets2/*
         git commit -m "Update dynmap images"
-        git push
+        git push origin HEAD
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
