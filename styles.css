@@ -105,6 +105,14 @@ label {
 
 #plot-title {
     text-align: center;
+    margin-bottom: 10px;
+}
+
+#plot-coords {
+    color: #c8c8c8;
+    font-size: 13.5px;
+    text-align: center;
+    margin-bottom: 5px;
 }
 
 /* Dropdown styling */
