@@ -12,6 +12,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+      with:
+        persist-credentials: false  # Disable automatic token usage for security
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -30,3 +32,13 @@ jobs:
     - name: Spawn
       run: |
         dynmap-timemachine.py https://dynmap.cubekrowd.net/ survival flat [12300,64,-3000] [4,4] 1 assets2/Spawn.png
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.email "github-actions@github.com"
+        git config --global user.name "GitHub Action"
+        git add assets2/ShoppingDistrict.png assets2/Spawn.png
+        git commit -m "Update dynmap images"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
