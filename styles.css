@@ -30,30 +30,31 @@ label {
     margin: 10px 0px;
 }
 
-#dynmap, #grid {
-    width: 100vh;
-    height: 100vh;
-}
-
 #dynmap {
-    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    display: flex; /* Add flex to keep things centered */
+    flex-direction: column; /* Use column for alignment */
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow: scroll;
+    overflow: hidden; /* Remove scrollbars */
 }
 
 #dynmap-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100%; /* Full width to allow scaling */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Contain the image to avoid overflow */
 }
 
 #grid {
+    width: 100%; /* Match the image width */
+    height: auto; /* Match the image height */
     position: absolute;
     top: 0;
     left: 0;
-    pointer-events: none;
+    pointer-events: none; /* Allow interactions with elements underneath */
+    transform-origin: top left; /* Ensure scaling is consistent */
 }
 
 .plot {
