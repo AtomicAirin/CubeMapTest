@@ -93,7 +93,6 @@ function squarePlot(plot) {
         title.textContent = plot.title;
         description.innerHTML = plot.description;
         coords.textContent = `x: ${Math.round((x1 + x2)/2)}, z: ${Math.round((y1 + y2)/2)}`
-        description.classList.remove('hidden');
     };
 
     const grid = document.getElementById('grid');
