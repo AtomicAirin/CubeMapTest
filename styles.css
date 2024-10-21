@@ -38,30 +38,25 @@ label {
 
 /* Map and grid styling */
 #dynmap {
-    width: 100vh;
-    height: 100vh;
-    display: flex; /* Keep centered */
-    flex-direction: column; /* Column alignment */
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden; /* No scrollbars */
+    position: relative; /* Allows absolute positioning for child elements */
+    width: 100%; /* Full width of the container */
+    height: auto; /* Adjust height automatically */
 }
 
+
 #dynmap-img {
-    width: 100%; /* Full width to allow scaling */
+    width: 100%; /* Make the image responsive */
     height: auto; /* Maintain aspect ratio */
-    object-fit: contain; /* Contain the image to avoid overflow */
+    display: block; /* Ensures no gaps below the image */
 }
 
 #grid {
-    width: 100%; /* Match the image width */
-    height: auto; /* Match the image height */
-    position: absolute;
+    position: absolute; /* Position grid absolutely within dynmap */
     top: 0;
     left: 0;
-    pointer-events: none; /* Allow interactions with elements underneath */
-    transform-origin: top left; /* Ensure scaling is consistent */
+    width: 100%; /* Full width of dynmap */
+    height: 100%; /* Full height of dynmap */
+    pointer-events: none; /* Allow clicks to pass through to the dynmap image */
 }
 
 /* Plot styling */
