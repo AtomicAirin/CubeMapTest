@@ -120,9 +120,6 @@ async function fetchPlots(currentSector) {
     });
 }
 
-// Event listener for mode toggle button
-document.getElementById('mode-toggle').addEventListener('click', toggleMode);
-
 function waitForElement(selector, callback) {
     const interval = setInterval(() => {
         const element = document.querySelector(selector);
