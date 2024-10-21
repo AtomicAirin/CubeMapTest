@@ -90,7 +90,7 @@ function squarePlot(plot) {
         const title = document.getElementById('plot-title');
         const description = document.getElementById('plot-description');
         title.textContent = plot.title;
-        description.textContent = plot.description;
+        description.innerHTML = plot.description;
         description.classList.remove('hidden');
     };
 
