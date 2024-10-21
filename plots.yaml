@@ -8,8 +8,8 @@ plots:
       - [0.1, 0.2]  # (x1, y1)
       - [0.3, 0.4]  # (x2, y2)
       
-  - title: "Desert Zone"
-    description: "An arid desert zone with sand dunes."
+  - title: "Lorem ipsum dolor sit amet, consectetur"
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non gravida urna. Aliquam eleifend massa mi, at volutpat felis aliquam ut. Curabitur pellentesque neque eget aliquet fringilla. Sed tincidunt sapien nibh, eget consequat nibh posuere at. Sed ac nibh in tortor consequat lacinia. Aliquam ultricies arcu eget interdum blandit. Morbi."
     sector: "Sector 1"
     fillColor: "#f4a460"
     borderColor: "#8b4513"
