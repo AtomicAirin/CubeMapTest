@@ -109,7 +109,13 @@ async function fetchPlots(currentSector) {
     const plots = data.plots;
 
     const grid = document.getElementById('grid');
-    grid.innerHTML = ''; // Clear previous plots
+    
+    // Remove all plotDivs while keeping the dynmap-img intact
+    Array.from(grid.children).forEach(child => {
+        if (child.className === 'plot') {
+            grid.removeChild(child);
+        }
+    });
 
     // Filter the plots for the current sector
     const filteredPlots = plots.filter(plot => plot.sector === currentSector);
