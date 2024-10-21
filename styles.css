@@ -95,6 +95,8 @@ label {
     border-radius: 8px;
     margin-top: 15px;
     box-shadow: 8px 8px 16px #101010, -8px -8px 16px #1c1c1c; /* Subtle shadow */
+    z-index: 0;
+    border: #333 solid 2px;
 }
 
 #plot-title, #plot-description {
