@@ -31,28 +31,27 @@ async function fetchSectors() {
 
     // Change the dynmap image when a sector is selected
     sectorDropdown.addEventListener('change', function() {
-        const dynmapImg = document.getElementById('dynmap-img');
-        dynmapImg.src = this.value; // Update image source to selected sector URL
+        loadSectorImage(this.value);
     });
 
     // Optionally, load the initial sector image when the dropdown is first populated
     if (sectors.length > 0) {
         const initialSector = sectors[0];
-        const dynmapImg = document.getElementById('dynmap-img');
-        dynmapImg.src = initialSector.url; // Set the initial image path
+        loadSectorImage(initialSector.url);
         fetchPlots(initialSector.name);
     }
 }
 
-// Function to set the grid size based on the image size
-// function adjustGridSize() {
-//     const dynmapImg = document.getElementById('dynmap-img');
-//     const grid = document.getElementById('grid');
+// Function to load the sector image and adjust the grid accordingly
+function loadSectorImage(imageUrl) {
+    const dynmapImg = document.getElementById('dynmap-img');
+    dynmapImg.src = imageUrl;
 
-//     // Set grid dimensions to match the image dimensions
-//     grid.style.width = `100vh`;
-//     grid.style.height = `100vh`;
-// }
+    // Ensure plots are correctly aligned when the image is loaded
+    dynmapImg.onload = function() {
+        fetchPlots(document.getElementById('sector-dropdown').selectedOptions[0].textContent);
+    };
+}
 
 function squarePlot(plot) {
     const [[x1, y1], [x2, y2]] = plot.coordinates;
@@ -64,15 +63,15 @@ function squarePlot(plot) {
 
     // Get the image dimensions for correct positioning
     const dynmapImg = document.getElementById('dynmap-img');
-    const gridWidth = dynmapImg.clientWidth;
-    const gridHeight = dynmapImg.clientHeight;
-    
+    const gridWidth = dynmapImg.naturalWidth;
+    const gridHeight = dynmapImg.naturalHeight;
+
     // Calculate plot dimensions based on the coordinates
     const width = Math.abs(x2 - x1) * gridWidth;
     const height = Math.abs(y2 - y1) * gridHeight;
     const left = Math.min(x1, x2) * gridWidth;
     const top = Math.min(y1, y2) * gridHeight;
-    
+
     plotDiv.style.width = `${width}px`;
     plotDiv.style.height = `${height}px`;
     plotDiv.style.left = `${left}px`;
@@ -97,6 +96,7 @@ function squarePlot(plot) {
     };
 
     console.log(plot.title, width, height, left, top);
+    const grid = document.getElementById('grid');
     grid.appendChild(plotDiv);
 }
 
