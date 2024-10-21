@@ -139,6 +139,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Wait for the sector dropdown to be available
     waitForElement('#sector-dropdown', (sectorDropdown) => {
         fetchPlots("Sector 1"); // Fetch plots for the currently selected sector
+        document.getElementById('plot-title').textContent = "Welcome to KrowdMap.";
+        document.getElementById('plot-description').textContent = "Get started by clicking an area marked on the map, or choose a specific map region above.\n\nWant to submit your own form? Check out the form below.";
 
         // Listen for changes on the dropdown
         sectorDropdown.addEventListener('change', (event) => {
