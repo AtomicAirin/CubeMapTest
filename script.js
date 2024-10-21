@@ -123,6 +123,14 @@ async function fetchPlots(currentSector) {
     });
 }
 
+function toggleNames() {
+    const plots = document.querySelectorAll('.plot');
+    plots.forEach(plot => {
+        const currentSize = window.getComputedStyle(plot).fontSize;
+        plot.style.fontSize = (currentSize === '10px') ? '0px' : '10px';
+    });
+}
+
 function waitForElement(selector, callback) {
     const interval = setInterval(() => {
         const element = document.querySelector(selector);
@@ -148,6 +156,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const selectedSector = event.target.options[event.target.selectedIndex].text;
             fetchPlots(selectedSector); // Fetch plots for the new sector
         });
+        document.getElementById('toggle-names').addEventListener('click', toggleNames);
     });
 });
 
