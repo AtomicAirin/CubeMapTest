@@ -45,8 +45,6 @@ label {
 
 
 #dynmap-img {
-    width: 100%; /* Make the image responsive */
-    height: auto; /* Maintain aspect ratio */
     display: block; /* Ensures no gaps below the image */
 }
 
