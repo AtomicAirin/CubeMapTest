@@ -1,32 +1,26 @@
 /* styles.css */
 
+/* General body styling */
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     display: flex;
     min-height: 100vh;
-    transition: background-color 0.3s ease-in-out;
-    transition: color 0.2s ease-in-out;
+    background-color: #121212; /* Dark background */
+    color: #ffffff; /* Light text color for readability */
 }
 
-body.dark-mode { background-color: #121212; }
-
+/* Sidebar styling */
 #sidebar {
-    background-color: #fff;
-    color: #000;
+    background-color: #333333; /* Dark sidebar */
+    color: #ffffff; /* Light text */
     width: 15vw;
     display: flex;
     flex-direction: column;
     padding: 20px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Darker shadow */
     max-height: 100vh;
     min-width: 200px;
-    
-}
-
-body.dark-mode #sidebar {
-    background-color: #333;
-    color: #fff;
 }
 
 label {
@@ -34,27 +28,24 @@ label {
 }
 
 .link {
-    color: #00abff;
+    color: #01d4fe; /* Light blue link color */
     transition: all 0.3s ease-in-out;
 }
 
-.link.dark-mode {
-    color: #01d4fe;
-}
-
 .link:hover {
-    color: #fdb40b;
+    color: #fdb40b; /* Hover effect for links */
 }
 
+/* Map and grid styling */
 #dynmap {
     width: 100vh;
     height: 100vh;
-    display: flex; /* Add flex to keep things centered */
-    flex-direction: column; /* Use column for alignment */
+    display: flex; /* Keep centered */
+    flex-direction: column; /* Column alignment */
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow: hidden; /* Remove scrollbars */
+    overflow: hidden; /* No scrollbars */
 }
 
 #dynmap-img {
@@ -73,22 +64,26 @@ label {
     transform-origin: top left; /* Ensure scaling is consistent */
 }
 
+/* Plot styling */
 .plot {
     position: absolute;
-    border: 2px solid;
+    border: 2px solid #ffffff; /* Light border for plots */
     cursor: pointer;
     pointer-events: auto;
     transition: all 0.2s ease;
 }
 
+/* Plot info styling */
 #plot-info {
+    background-color: #1a1a1a; /* Dark background */
+    color: #ffffff; /* Light text */
     padding: 10px;
     border-radius: 8px;
     margin-top: 10px;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
 }
 
-#plot-title #plot-description {
+#plot-title, #plot-description {
     margin: 5px 5px;
 }
 
@@ -96,55 +91,36 @@ label {
     text-align: center;
 }
 
-/* Light mode version */
-body.light-mode #plot-info {
-    background-color: #f0f0f0;
-    color: #000;
-}
-
-/* Dark mode version */
-body.dark-mode #plot-info {
-    background-color: #1a1a1a;
-    color: #fff;
-}
-
+/* Dropdown styling */
 #sector-dropdown {
     font-family: 'Inter', sans-serif;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #444;
-    background: white;
+    border: 1px solid #cccccc; /* Light border */
+    background-color: #444444; /* Dark dropdown background */
+    color: #ffffff; /* Light text */
 }
 
-#sector-dropdown.dark-mode {
-    border: 1px solid #ccc;
-    background: #444;
-}
-
+/* Button styling */
 .toggle-button {
     font-family: 'Inter', sans-serif;
-    background-color: #ccc;
+    background-color: #444444; /* Dark button background */
+    color: #ffffff; /* Light text */
     border: none;
     border-radius: 5px;
     padding: 10px;
     cursor: pointer;
     transition: background-color 0.5s ease-in-out;
     margin-top: 10px;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
 }
 
-body.light-mode .toggle-button {
-    background-color: #f0f0f0;
-    color: #000;
+/* Hidden class for elements that should not display */
+.hidden {
+    display: none;
 }
 
-body.dark-mode .toggle-button {
-    background-color: #444;
-    color: #fff;
-}
-
-.hidden { display: none; }
-
+/* Footer styling */
 .footer {
     display: flex;
     flex-direction: column;
@@ -152,6 +128,8 @@ body.dark-mode .toggle-button {
     margin-top: auto;
     padding: 10px;
     border-radius: 8px;
+    background-color: #1a1a1a; /* Dark footer */
+    color: #ffffff; /* Light text */
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
     flex-shrink: 0;
     text-align: center;
@@ -163,9 +141,10 @@ body.dark-mode .toggle-button {
 
 .footer-item a {
     text-decoration: none;
-    color: inherit;
+    color: #01d4fe; /* Consistent link color */
 }
 
+/* App and map container styling */
 #app, #map {
     display: flex;
     flex: 1;
