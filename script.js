@@ -138,19 +138,19 @@ function waitForElement(selector, callback) {
 document.addEventListener('DOMContentLoaded', async () => {
     await fetchConfig(); // Ensure this function is defined and works correctly
     await fetchSectors(); // Ensure this function is defined and works correctly
+    fetchPlots("Sector 1");
+    // // Wait for the sector dropdown to be available
+    // waitForElement('#sector-dropdown', (sectorDropdown) => {
+    //     fetchPlots(sectorDropdown.value); // Fetch plots for the currently selected sector
 
-    // Wait for the sector dropdown to be available
-    waitForElement('#sector-dropdown', (sectorDropdown) => {
-        fetchPlots(sectorDropdown.value); // Fetch plots for the currently selected sector
-
-        // Listen for changes on the dropdown
-        sectorDropdown.addEventListener('change', (event) => {
-            console.log("Dropdown Change");
-            const selectedSector = event.target.options[event.target.selectedIndex].text;
-            console.log(selectedSector);
-            fetchPlots(selectedSector); // Fetch plots for the new sector
-        });
-    });
+    //     // Listen for changes on the dropdown
+    //     sectorDropdown.addEventListener('change', (event) => {
+    //         console.log("Dropdown Change");
+    //         const selectedSector = event.target.options[event.target.selectedIndex].text;
+    //         console.log(selectedSector);
+    //         fetchPlots(selectedSector); // Fetch plots for the new sector
+    //     });
+    // });
 
     // Wait for the dynmap image to be available
     // waitForElement('#dynmap-img', (dynmapImg) => {
