@@ -295,3 +295,93 @@ plots:
     coordinates:
       - [0.90, 0.85]  # (x1, y1)
       - [0.92, 0.87]  # (x2, y2)
+
+  - title: "Emerald Peaks"
+    description: "A breathtaking range of green-tinted mountains, shimmering with a hint of emerald."
+    sector: "Sector 2"
+    fillColor: "#3cb371"  # Medium Sea Green
+    borderColor: "#004d00"  # Dark Green
+    coordinates:
+      - [0.60, 0.70]  # (x1, y1)
+      - [0.62, 0.72]  # (x2, y2)
+  
+  - title: "Crimson Cliffs"
+    description: "Steep cliffs with a striking crimson hue, towering above the valley."
+    sector: "Sector 2"
+    fillColor: "#dc143c"  # Crimson
+    borderColor: "#8b0000"  # Dark Red
+    coordinates:
+      - [0.65, 0.75]  # (x1, y1)
+      - [0.67, 0.78]  # (x2, y2)
+  
+  - title: "Silver Summit"
+    description: "A majestic mountain crowned with silver peaks that glisten in the sunlight."
+    sector: "Sector 2"
+    fillColor: "#c0c0c0"  # Silver
+    borderColor: "#696969"  # Dim Gray
+    coordinates:
+      - [0.70, 0.80]  # (x1, y1)
+      - [0.73, 0.82]  # (x2, y2)
+  
+  - title: "Golden Ridge"
+    description: "A golden-hued ridge, illuminated by the first light of dawn."
+    sector: "Sector 2"
+    fillColor: "#ffd700"  # Gold
+    borderColor: "#b8860b"  # Dark Goldenrod
+    coordinates:
+      - [0.75, 0.85]  # (x1, y1)
+      - [0.77, 0.87]  # (x2, y2)
+  
+  - title: "Misty Mountains"
+    description: "Enveloped in a soft mist, these mountains appear ethereal and elusive."
+    sector: "Sector 2"
+    fillColor: "#add8e6"  # Light Blue
+    borderColor: "#4682b4"  # Steel Blue
+    coordinates:
+      - [0.80, 0.90]  # (x1, y1)
+      - [0.82, 0.92]  # (x2, y2)
+  
+  - title: "Obsidian Range"
+    description: "A dark and forbidding range of mountains, reminiscent of obsidian rock."
+    sector: "Sector 2"
+    fillColor: "#000000"  # Black
+    borderColor: "#444444"  # Dark Gray
+    coordinates:
+      - [0.83, 0.93]  # (x1, y1)
+      - [0.85, 0.95]  # (x2, y2)
+  
+  - title: "Frostbite Heights"
+    description: "Snow-covered peaks that are as sharp as they are breathtaking."
+    sector: "Sector 2"
+    fillColor: "#ffffff"  # White
+    borderColor: "#a9a9a9"  # Light Gray
+    coordinates:
+      - [0.87, 0.97]  # (x1, y1)
+      - [0.89, 0.99]  # (x2, y2)
+  
+  - title: "Twilight Range"
+    description: "A range that glows in shades of purple and blue as the sun sets."
+    sector: "Sector 2"
+    fillColor: "#483d8b"  # Dark Slate Blue
+    borderColor: "#8a2be2"  # Blue Violet
+    coordinates:
+      - [0.90, 0.80]  # (x1, y1)
+      - [0.92, 0.82]  # (x2, y2)
+  
+  - title: "Sunset Peaks"
+    description: "Mountains that reflect the warm colors of a setting sun, rich in oranges and reds."
+    sector: "Sector 2"
+    fillColor: "#ff4500"  # Orange Red
+    borderColor: "#ff6347"  # Tomato
+    coordinates:
+      - [0.91, 0.88]  # (x1, y1)
+      - [0.93, 0.90]  # (x2, y2)
+  
+  - title: "Azure Escarpment"
+    description: "A stunning escarpment overlooking a deep blue valley."
+    sector: "Sector 2"
+    fillColor: "#4682b4"  # Steel Blue
+    borderColor: "#2e8b57"  # Sea Green
+    coordinates:
+      - [0.94, 0.80]  # (x1, y1)
+      - [0.96, 0.82]  # (x2, y2)
