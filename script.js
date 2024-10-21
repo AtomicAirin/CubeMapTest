@@ -120,12 +120,6 @@ async function fetchPlots(currentSector) {
     });
 }
 
-
-// Function to toggle between light and dark mode
-function toggleMode() {
-    document.body.classList.toggle('dark-mode');
-}
-
 // Event listener for mode toggle button
 document.getElementById('mode-toggle').addEventListener('click', toggleMode);
 
@@ -140,8 +134,6 @@ function waitForElement(selector, callback) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-    console.log("Loaded");
-    document.body.classList.add('dark-mode');
     await fetchConfig(); // Ensure this function is defined and works correctly
     await fetchSectors(); // Ensure this function is defined and works correctly
 
