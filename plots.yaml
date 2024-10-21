@@ -1,6 +1,6 @@
 plots:
   - title: "Forest Area"
-    description: "A dense forest area with rich biodiversity."
+    description: "A dense forest area with rich biodiversity. <br><br> Testing!"
     sector: "Sector 1"
     fillColor: "#008000"
     borderColor: "#004d00"
