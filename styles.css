@@ -35,7 +35,7 @@ label {
 
 .link {
     color: #01d4fe; /* Light blue link color */
-    transition: all 0.3s ease;
+    transition: all 0.24s ease;
 }
 
 .link:hover {
