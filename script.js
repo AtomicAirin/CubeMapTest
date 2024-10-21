@@ -83,7 +83,6 @@ function squarePlot(plot) {
     plotDiv.style.display = 'flex';
     plotDiv.style.alignItems = 'center';
     plotDiv.style.justifyContent = 'center';
-    plotDiv.style.fontSize = '12px';
     plotDiv.style.textAlign = 'center';
 
     // Click event for showing description
