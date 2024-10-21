@@ -89,8 +89,10 @@ function squarePlot(plot) {
     plotDiv.onclick = () => {
         const title = document.getElementById('plot-title');
         const description = document.getElementById('plot-description');
+        const coords = document.getElementById('plot-coords');
         title.textContent = plot.title;
         description.innerHTML = plot.description;
+        coords.textContent = `x: ${Math.round((x1 + x2)/2)}, z: ${Math.round((y1 + y2)/2)}`
         description.classList.remove('hidden');
     };
 
