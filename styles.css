@@ -26,6 +26,10 @@ body.dark-mode #sidebar {
     color: #fff;
 }
 
+label {
+    margin: 10px 0px;
+}
+
 #dynmap, #grid {
     width: 100vh;
     height: 100vh;
@@ -89,12 +93,15 @@ body.dark-mode #plot-info {
 
 #sector-dropdown {
     font-family: 'Inter', sans-serif;
-    appearance: none;
     padding: 10px;
     border-radius: 5px;
+    border: 1px solid #444;
+    background: white;
+}
+
+#sector-dropdown.dark-mode {
     border: 1px solid #ccc;
-    background: white url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><polygon points="0,0 10,10 20,0" fill="gray"/></svg>') no-repeat right 10px center;
-    background-size: 10px;
+    background: #444;
 }
 
 .toggle-button {
