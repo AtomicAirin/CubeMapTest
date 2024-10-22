@@ -7,6 +7,15 @@ plots:
     coordinates:
       - [0.1, 0.2]  # (x1, y1)
       - [0.3, 0.4]  # (x2, y2)
+
+  - title: "Forest Area"
+    description: "A dense forest area with rich biodiversity. <br><br> Testing!"
+    sector: "Sector 1"
+    fillColor: "#008000"
+    borderColor: "#004d00"
+    coordinates:
+      - [0.4, 0.7]  # (x1, y1)
+    radius: 0.1;
       
   - title: "Lorem ipsum dolor sit amet, consectetur"
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non gravida urna. Aliquam eleifend massa mi, at volutpat felis aliquam ut. Curabitur pellentesque neque eget aliquet fringilla. Sed tincidunt sapien nibh, eget consequat nibh posuere at. Sed ac nibh in tortor consequat lacinia. Aliquam ultricies arcu eget interdum blandit. Morbi."
