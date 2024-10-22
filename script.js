@@ -7,8 +7,7 @@ async function fetchConfig() {
     const config = jsyaml.load(configText);
 
     // Assuming you have already set the innerHTML for the footer items
-    document.querySelector('.footer-item:nth-child(3)').textContent = `CubeMap v${config.version}`;
-    document.querySelector('.footer-item:nth-child(4)').textContent = `Updated ${config.last_updated}`;
+    document.querySelector('.footer-item:nth-child(3)').textContent = `v${config.version}, updated ${config.last_updated}`;
 }
 
 // Function to fetch the sectors from sectors.yaml
