@@ -98,6 +98,54 @@ function squarePlot(plot) {
     grid.appendChild(plotDiv);
 }
 
+function circlePlot(plot) {
+    const [[x1, z1]] = plot.coordinates; // Center point
+    const radius = plot.radius; // Radius value for the circle
+
+    const plotDiv = document.createElement('div');
+    plotDiv.className = 'plot-circle';
+    plotDiv.style.position = 'absolute';
+    plotDiv.style.border = `2px solid ${plot.borderColor}`;
+    plotDiv.style.backgroundColor = `${plot.fillColor}4D`; // 30% opacity
+
+    // Get the image dimensions for correct positioning
+    const dynmapImg = document.getElementById('dynmap-img');
+    const gridWidth = dynmapImg.naturalWidth;
+    const gridHeight = dynmapImg.naturalHeight;
+
+    // Calculate circle dimensions based on the radius and coordinates
+    const diameter = radius * 2 * gridWidth;
+    const left = (x1 * gridWidth) - (radius * gridWidth);
+    const top = (z1 * gridHeight) - (radius * gridHeight);
+
+    plotDiv.style.width = `${diameter}px`;
+    plotDiv.style.height = `${diameter}px`;
+    plotDiv.style.left = `${left}px`;
+    plotDiv.style.top = `${top}px`;
+    plotDiv.style.borderRadius = '50%'; // Make it a circle
+
+    // Display the title inside the circle div
+    plotDiv.textContent = plot.title;
+    plotDiv.style.color = 'white';
+    plotDiv.style.display = 'flex';
+    plotDiv.style.alignItems = 'center';
+    plotDiv.style.justifyContent = 'center';
+    plotDiv.style.textAlign = 'center';
+
+    // Click event for showing description
+    plotDiv.onclick = () => {
+        const title = document.getElementById('plot-title');
+        const description = document.getElementById('plot-description');
+        const coords = document.getElementById('plot-coords');
+        title.textContent = plot.title;
+        description.innerHTML = plot.description;
+        coords.textContent = `x: ${Math.round(x1)}, z: ${Math.round(z1)}`;
+    };
+
+    const grid = document.getElementById('grid');
+    grid.appendChild(plotDiv);
+}
+
 // Function to fetch the plots from plots.yaml
 async function fetchPlots(currentSector) {
     const response = await fetch('plots.yaml');
@@ -109,7 +157,7 @@ async function fetchPlots(currentSector) {
     
     // Remove all plotDivs while keeping the dynmap-img intact
     Array.from(grid.children).forEach(child => {
-        if (child.className === 'plot') {
+        if (child.classList.contains('plot') || child.classList.contains('plot-circle')) {
             grid.removeChild(child);
         }
     });
@@ -118,7 +166,11 @@ async function fetchPlots(currentSector) {
     const filteredPlots = plots.filter(plot => plot.sector === currentSector);
 
     filteredPlots.forEach(plot => {
-        squarePlot(plot);
+        if (plot.shape === 'rect') {
+            squarePlot(plot);
+        } else if (plot.shape === 'circle') {
+            circlePlot(plot);
+        }
     });
 }
 
