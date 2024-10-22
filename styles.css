@@ -97,7 +97,7 @@ label {
     margin-top: 15px;
     box-shadow: 8px 8px 16px #101010, -8px -8px 16px #1c1c1c; /* Subtle shadow */
     z-index: 0;
-    border: #333 solid 2px;
+/*     border: #333 solid 2px; */
 }
 
 #plot-title, #plot-description {
@@ -135,10 +135,10 @@ label {
     color: #c8c8c8; /* Light text */
     padding: 10px;
     border-radius: 8px;
-    margin-top: 15px;
+    margin-top: auto;
     box-shadow: 8px 8px 16px #101010, -8px -8px 16px #1c1c1c; /* Subtle shadow */
     transition: all 0.18s ease;
-    border: #777 solid 2px;
+    border: #777 solid 2px; 
 }
 
 #toggle-names:hover {
@@ -165,7 +165,7 @@ label {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: auto;
+    margin-top: 15px;
     padding: 10px;
     border-radius: 8px;
     background-color: #161616; /* Dark footer */
