@@ -26,6 +26,7 @@ body {
     margin: 10px 0px;
     width: 70%;
     align-self: center;
+    filter: drop-shadow(8px 8px 16px #060606);
 }
 
 label {
