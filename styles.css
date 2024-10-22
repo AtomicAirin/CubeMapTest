@@ -129,6 +129,11 @@ label {
     border: #777 solid 2px;
 }
 
+#aesthetic {
+    height: 0px;
+    margin-top: auto;
+}
+
 #toggle-names {
     font-family: 'Inter', sans-serif;
     font-size: 11px;
@@ -136,7 +141,7 @@ label {
     color: #c8c8c8; /* Light text */
     padding: 10px;
     border-radius: 8px;
-    margin-top: auto;
+    margin-top: 15px;
     box-shadow: 8px 8px 16px #101010, -8px -8px 16px #1c1c1c; /* Subtle shadow */
     transition: all 0.18s ease;
     border: #777 solid 2px; 
