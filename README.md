@@ -17,15 +17,15 @@ Make a pull request adding the area you wish to identify to `plots.yaml`. The fo
 ```yaml
   - title: "Kaybeo's Base" # Please keep concise (~25 chars max) and distinct.
     description: "Kaybeo lives here! Feel free to stop by." # Try to keep on the shorter side (~300 chars max).
-    sector: "Global" # Which map to display on. Options: "Global", "Shopping District", and "Spawn".
+    sector: "Global" # Options: "Global", "Shopping District", "Spawn"
     fillColor: "#008000" # Box fill color in hex; reduced a good bit in opacity on the actual map.
     borderColor: "#004d00" # Box border color in hex.
-    shape: rect # Rectangle, circle, or dot.
+    shape: "rect" # Options: "rect", "circle", "dot"
     coordinates:
       - [1000, 1500]  # (x1, z1) - For rectangle: first corner, like a WorldEdit selection. For circle/dot: enter the center point.
       - [1200, 1650]  # (x2, z2) - For rectangle: Second corner. For circle/dot: Remove this line.
     radius: 0 # Enter a radius in blocks if shape is circle.
-    img: "https:www.example.com/image.png" # Optionally include an in-game screenshot link; prefer Imgur for this
+    img: "https://www.example.com/image.png" # Optionally include an in-game screenshot link; prefer Imgur for this
 ```
 
 *To ensure speedy entry, please notify Kaybeo on Discord once you submit a PR or Google Form.*
