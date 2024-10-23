@@ -80,7 +80,7 @@ label {
 
 .plot:hover {
     opacity: 1.0 !important;
-    font-size: 11px !important;
+    font-size: 11.5px !important;
     font-weight: 500;
     text-shadow: 2px 2px 3px black;
 }
@@ -104,7 +104,7 @@ label {
 
 .plot-circle:hover {
     opacity: 1.0 !important;
-    font-size: 11px !important;
+    font-size: 11.5px !important;
     font-weight: 500;
     text-shadow: 2px 2px 3px black;
 }
@@ -128,12 +128,12 @@ label {
 
 .plot-dot span {
     position: absolute;
-    top: -220%; /* Place it above the dot */
+    top: -230%; /* Place it above the dot */
     left: 50%;
     transform: translateX(-50%); /* Center it horizontally */
     white-space: nowrap;
     color: white;
-    font-size: 8px;
+    font-size: 10px;
     text-shadow: 2px 2px 3px black;
     opacity: 0;
     pointer-events: none; /* Prevent interaction with the text itself */
@@ -142,14 +142,13 @@ label {
 
 .plot-dot:hover {
     opacity: 1.0 !important;
-    font-size: 11px !important;
     font-weight: 500;
     text-shadow: 2px 2px 3px black;
     color: white;
 }
 
 .plot-dot:hover span {
-    font-size: 11px;
+    font-size: 11.5px !important;
     font-weight: 500;
     opacity: 1 !important;
 }
