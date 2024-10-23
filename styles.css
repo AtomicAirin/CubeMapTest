@@ -447,7 +447,10 @@ input[type="range"]::-moz-range-thumb {
 }
 
 #close-image:hover {
-    scale: 0.96;
     background-color: #141414dd;
     border: 2px solid #333;
+}
+
+#close-image:active {
+    font-size: 9.5px;
 }
