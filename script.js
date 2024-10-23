@@ -108,10 +108,12 @@ function squarePlot(plot) {
             highResImage.src = infoImage.src; // Use the same image source or a high-res version
         
             // Toggle the visibility of the high-res image container
-            if (highResImageContainer.style.display === 'none' || highResImageContainer.style.display === '') {
-                highResImageContainer.style.display = 'block';
+            if (highResImageContainer.classList.contains('show')) {
+                // Fade out the image container
+                highResImageContainer.classList.remove('show');
             } else {
-                highResImageContainer.style.display = 'none';
+                // Fade in the image container
+                highResImageContainer.classList.add('show');
             }
         };
     };
@@ -177,10 +179,12 @@ function circlePlot(plot) {
             highResImage.src = infoImage.src; // Use the same image source or a high-res version
         
             // Toggle the visibility of the high-res image container
-            if (highResImageContainer.style.display === 'none' || highResImageContainer.style.display === '') {
-                highResImageContainer.style.display = 'block';
+            if (highResImageContainer.classList.contains('show')) {
+                // Fade out the image container
+                highResImageContainer.classList.remove('show');
             } else {
-                highResImageContainer.style.display = 'none';
+                // Fade in the image container
+                highResImageContainer.classList.add('show');
             }
         };
     };
@@ -239,10 +243,12 @@ function dotPlot(plot) {
             highResImage.src = infoImage.src; // Use the same image source or a high-res version
         
             // Toggle the visibility of the high-res image container
-            if (highResImageContainer.style.display === 'none' || highResImageContainer.style.display === '') {
-                highResImageContainer.style.display = 'block';
+            if (highResImageContainer.classList.contains('show')) {
+                // Fade out the image container
+                highResImageContainer.classList.remove('show');
             } else {
-                highResImageContainer.style.display = 'none';
+                // Fade in the image container
+                highResImageContainer.classList.add('show');
             }
         };
     };
