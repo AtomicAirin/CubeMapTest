@@ -56,7 +56,7 @@ function loadSectorImage(imageUrl) {
 
     // Ensure plots are correctly aligned when the image is loaded
     dynmapImg.onload = function() {
-        fetchPlots(document.getElementById('sector-dropdown').selectedOptions[0].textContent);
+        fetchPlots(document.getElementById('sector-dropdown').selected[0].textContent);
     };
 }
 
@@ -307,7 +307,7 @@ function toggleNames() {
 }
 
 function toggleOptions() {
-    const divs = [document.getElementById('toggle-names'), document.getElementById('toggle-name-scaling')];
+    const divs = [document.getElementById('toggle-names'), document.getElementById('toggle-name-scaling'), document.getElementsByClassName('slider-label'), document.getElementsByClassName('slider-container')];
     divs.forEach(div => {
         const currentOpacity = window.getComputedStyle(div).opacity;
 
