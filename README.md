@@ -32,20 +32,20 @@ Make a pull request adding the area you wish to identify to `plots.yaml`. The fo
 
 ## Potential FAQs
 
-### When I submit an area, which "map" field do I choose?
+### When I submit an area, which region do I choose?
 Try to pick the most specific option:
 - `Spawn` for spawn builds
 - `Shopping District` for builds in the shopping district
 - `Global` for everything else (e.g. bases)
 
-### If I submit an area to one map, will it show up on the others?
+### If I submit an area to one region, will it show up on the others?
 Submissions to "Global" will appear on zoomed-in quadrant maps (e.g. Northeast Quadrant) that they fit within.
 
-### What's the difference between the shapes 'circle' and 'dot'?
-Area names are not shown for dots unless hovered over or clicked on; dots are best used to denote important sites within a larger rectangle/circle, or for small builds.
+### What's the 'dot' shape for?
+Area names are only shown for dots when hovered over. Dots are best used to denote important sites within a larger rectangle/circle, or for small builds.
 
 ### My build doesn't really fit in a rectangle or a circle.
-No worries! Just try to approximate it, prioritizing the avoidance of unclaimed land, or consider a dot for small builds.
+No worries; just try to approximate it, prioritizing the avoidance of unclaimed land. Alternatively, consider a dot for small builds.
 
 ### I want to update, change, or remove a submission.
 Option 1: Select "I'm updating an entry" in the Google Form linked above.
