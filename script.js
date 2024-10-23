@@ -1,4 +1,5 @@
 // script.js
+let namesVisible = true; // Initialize toggle state
 
 // Function to fetch the configuration from config.yaml
 async function fetchConfig() {
@@ -8,6 +9,13 @@ async function fetchConfig() {
 
     // Assuming you have already set the innerHTML for the footer items
     document.querySelector('.footer-item:nth-child(3)').textContent = `v${config.version}, updated ${config.last_updated}`;
+}
+
+function updatePlotNamesVisibility() {
+    const plots = document.querySelectorAll('.plot, .plot-circle, .plot-dot');
+    plots.forEach(plot => {
+        plot.style.fontSize = namesVisible ? '10px' : '0px'; // Adjust font size based on the state
+    });
 }
 
 // Function to fetch the sectors from sectors.yaml
@@ -285,13 +293,15 @@ async function fetchPlots(currentSector) {
             dotPlot(plot);
         }
     });
+
+    updatePlotNamesVisibility();
 }
 
 function toggleNames() {
     const plots = document.querySelectorAll('.plot, .plot-circle, .plot-dot');
+    namesVisible = !namesVisible; // Toggle the state
     plots.forEach(plot => {
-        const currentSize = window.getComputedStyle(plot).fontSize;
-        plot.style.fontSize = (currentSize === '10px') ? '0px' : '10px';
+        plot.style.fontSize = namesVisible ? '10px' : '0px'; // Adjust font size based on the state
     });
 }
 
