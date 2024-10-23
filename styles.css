@@ -191,6 +191,7 @@ label {
     margin-bottom: 20px;
     outline: #333 solid 2px;
     border-radius: 6px;
+    cursor: pointer;
 }
 
 #plot-coords {
