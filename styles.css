@@ -424,3 +424,14 @@ input[type="range"]::-moz-range-thumb {
     width: auto; /* Allow width to adjust based on height */
     max-width: 100%; /* Prevent width from exceeding container */
 }
+
+#close-image {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    background-color: #161616; /* Dark background */
+    color: #c8c8c8; /* Light text */
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.18s ease;
+    border: 2px solid #444;
+}
