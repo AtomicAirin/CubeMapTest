@@ -1,5 +1,6 @@
 // script.js
 let namesVisible = true; // Initialize toggle state
+let optionsVisible = false;
 
 // Function to fetch the configuration from config.yaml
 async function fetchConfig() {
@@ -308,10 +309,9 @@ function toggleNames() {
 
 function toggleOptions() {
     const divs = [document.getElementById('toggle-names'), document.getElementById('toggle-name-scaling'), document.getElementsByClassName('slider-label'), document.getElementsByClassName('slider-container')];
+    optionsVisible = !optionsVisible;
     divs.forEach(div => {
-        const currentOpacity = window.getComputedStyle(div).opacity;
-
-        if (currentOpacity === '1') {
+        if (optionsVisible) {
             // Shrink to 0 size, hide by opacity, remove margin
             div.style.transform = 'scale(0)';
             div.style.opacity = '0';
