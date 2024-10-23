@@ -337,3 +337,25 @@ label {
     align-items: center;
     position: relative;
 }
+
+#high-res-image-container {
+    position: absolute; /* Position it absolutely */
+    top: 0; /* Adjust this as necessary */
+    left: 50%;
+    transform: translateX(-50%); /* Center it horizontally */
+    z-index: 10; /* Ensure it appears above other elements */
+    padding: 10px; /* Add padding around the image */
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    border-radius: 5px; /* Optional: rounded corners */
+}
+
+.image-padding {
+    max-width: 80vw; /* Limit width to 80% of the viewport */
+    max-height: 80vh; /* Limit height to 80% of the viewport */
+    overflow: hidden; /* Hide overflow */
+}
+
+#high-res-image {
+    width: 100%; /* Scale image to fit the container */
+    height: auto; /* Maintain aspect ratio */
+}
