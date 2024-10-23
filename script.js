@@ -246,6 +246,25 @@ function toggleNames() {
     });
 }
 
+function toggleOptions() {
+    const divs = [document.getElementById('toggle-names'), document.getElementById('toggle-name-scaling')];
+    divs.forEach(div => {
+        const currentOpacity = window.getComputedStyle(div).opacity;
+
+        if (currentOpacity === '1') {
+            // Shrink to 0 size, hide by opacity, remove margin
+            div.style.transform = 'scale(0)';
+            div.style.opacity = '0';
+            div.style.marginTop = '0';
+        } else {
+            // Expand to full size, show with opacity, add margin
+            div.style.transform = 'scale(1)';
+            div.style.opacity = '1';
+            div.style.marginTop = '10px';
+        }
+    });
+}
+
 function waitForElement(selector, callback) {
     const interval = setInterval(() => {
         const element = document.querySelector(selector);
@@ -271,6 +290,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const selectedSector = event.target.options[event.target.selectedIndex].text;
             fetchPlots(selectedSector); // Fetch plots for the new sector
         });
+        document.getElementById('options-button').addEventListener('click', toggleOptions);
         document.getElementById('toggle-names').addEventListener('click', toggleNames);
     });
 });
