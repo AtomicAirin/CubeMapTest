@@ -137,7 +137,7 @@ function circlePlot(plot) {
     const plotDiv = document.createElement('div');
     plotDiv.className = 'plot-circle';
     plotDiv.style.border = `2px solid ${plot.borderColor}`;
-    plotDiv.style.backgroundColor = `${plot.fillColor}4D`; // 30% opacity
+    plotDiv.style.backgroundColor = `${plot.fillColor}66`; // 40% opacity
 
     // Get the image dimensions for correct positioning
     const dynmapImg = document.getElementById('dynmap-img');
@@ -358,7 +358,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
         document.getElementById('opacity-plots').addEventListener('input', function() {
             const opacityValue = this.value;
-            document.getElementById('grid').style.opacity = opacityValue;
+            const plots = document.querySelectorAll('.plot, .plot-circle, .plot-dot');
+            plots.forEach(plot => {
+                plot.style.opacity = opacityValue;
+            });
         });
         
         document.getElementById('options-button').addEventListener('click', toggleOptions);
