@@ -308,7 +308,7 @@ function toggleNames() {
 }
 
 function toggleOptions() {
-    const divs = [document.getElementById('toggle-names'), document.getElementById('toggle-name-scaling'), document.getElementsByClassName('slider-label'), document.getElementsByClassName('slider-container')];
+    const divs = [document.getElementById('toggle-names'), document.getElementById('toggle-name-scaling'), document.getElementsByClassName('slider-label')[0], document.getElementsByClassName('slider-label')[1], document.getElementsByClassName('slider-container')[0], document.getElementsByClassName('slider-container')[1]];
     optionsVisible = !optionsVisible;
     divs.forEach(div => {
         if (optionsVisible) {
