@@ -341,10 +341,10 @@ function waitForElement(selector, callback) {
 
 document.addEventListener('DOMContentLoaded', async () => {
     await fetchConfig(); // Ensure this function is defined and works correctly
-    await fetchSectors(); // Ensure this function is defined and works correctly
 
     // Wait for the sector dropdown to be available
     waitForElement('#sector-dropdown', (sectorDropdown) => {
+        fetchSectors();
         fetchPlots("Sector 1"); // Fetch plots for the currently selected sector
         document.getElementById('plot-title').textContent = "Welcome to KrowdMap.";
         document.getElementById('plot-description').innerHTML = "Get started by clicking an area marked on the map, or choose a specific map region above. <br><br> Want to submit your own base, shop, or build? Check out the form below.";
