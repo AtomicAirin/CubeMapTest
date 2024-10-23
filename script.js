@@ -100,6 +100,20 @@ function squarePlot(plot) {
         } else {
             infoImage.style.display = 'none'; // Hide the image if no img field
         }
+
+        infoImage.onclick = () => {
+            const highResImageContainer = document.getElementById('high-res-image-container');
+            const highResImage = document.getElementById('high-res-image');
+            // Set the high-resolution image source
+            highResImage.src = infoImage.src; // Use the same image source or a high-res version
+        
+            // Toggle the visibility of the high-res image container
+            if (highResImageContainer.style.display === 'none' || highResImageContainer.style.display === '') {
+                highResImageContainer.style.display = 'block';
+            } else {
+                highResImageContainer.style.display = 'none';
+            }
+        };
     };
 
     const grid = document.getElementById('grid');
