@@ -325,6 +325,10 @@ function toggleOptions() {
     });
 }
 
+function closeImage() {
+    document.getElementById('high-res-image-container').classList.remove('show');
+}
+
 function waitForElement(selector, callback) {
     const interval = setInterval(() => {
         const element = document.querySelector(selector);
@@ -366,6 +370,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         document.getElementById('options-button').addEventListener('click', toggleOptions);
         document.getElementById('toggle-names').addEventListener('click', toggleNames);
+        document.getElementById('close-image').addEventListener('click', closeImage);
     });
 });
 
