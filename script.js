@@ -56,7 +56,6 @@ function squarePlot(plot) {
     const [[x1, y1], [x2, y2]] = plot.coordinates;
     const plotDiv = document.createElement('div');
     plotDiv.className = 'plot';
-    plotDiv.style.position = 'absolute';
     plotDiv.style.border = `2px solid ${plot.borderColor}`;
     plotDiv.style.backgroundColor = `${plot.fillColor}4D`; // 30% opacity
 
@@ -113,7 +112,6 @@ function circlePlot(plot) {
 
     const plotDiv = document.createElement('div');
     plotDiv.className = 'plot-circle';
-    plotDiv.style.position = 'absolute';
     plotDiv.style.border = `2px solid ${plot.borderColor}`;
     plotDiv.style.backgroundColor = `${plot.fillColor}4D`; // 30% opacity
 
@@ -131,7 +129,6 @@ function circlePlot(plot) {
     plotDiv.style.height = `${diameter}px`;
     plotDiv.style.left = `${left}px`;
     plotDiv.style.top = `${top}px`;
-    plotDiv.style.borderRadius = '50%'; // Make it a circle
 
     // Display the title inside the circle div
     plotDiv.textContent = plot.title;
@@ -169,11 +166,7 @@ function dotPlot(plot) {
 
     const plotDiv = document.createElement('div');
     plotDiv.className = 'plot-dot';
-    plotDiv.style.position = 'absolute';
     plotDiv.style.backgroundColor = `${plot.fillColor}9A`; // Dot fill color, slight opacity change
-    plotDiv.style.width = '5px';
-    plotDiv.style.height = '5px';
-    plotDiv.style.borderRadius = '50%'; // Make it a circle
 
     // Get the image dimensions for correct positioning
     const dynmapImg = document.getElementById('dynmap-img');
@@ -186,6 +179,8 @@ function dotPlot(plot) {
 
     plotDiv.style.left = `${left}px`;
     plotDiv.style.top = `${top}px`;
+
+    plotDiv.textContent = plot.title;
 
     // Click event for showing description and image (if present)
     plotDiv.onclick = () => {
