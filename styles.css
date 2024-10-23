@@ -128,7 +128,7 @@ label {
 
 .plot-dot span {
     position: absolute;
-    top: -30px; /* Place it above the dot */
+    top: -220%; /* Place it above the dot */
     left: 50%;
     transform: translateX(-50%); /* Center it horizontally */
     white-space: nowrap;
@@ -223,7 +223,7 @@ label {
     color: #c8c8c8; /* Light text */
     padding: 10px;
     border-radius: 8px;
-    margin-top: 15px;
+    margin-top: 10px;
     box-shadow: 8px 8px 16px #101010, -8px -8px 16px #1c1c1c; /* Subtle shadow */
     transition: all 0.18s ease;
     border: #555 solid 2px; 
@@ -272,7 +272,7 @@ label {
 
 #options-button {
     font-family: 'Inter', sans-serif;
-    font-size: 11px;
+    font-size: 13px;
     background-color: #161616; /* Dark background */
     color: #c8c8c8; /* Light text */
     padding: 10px;
