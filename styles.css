@@ -54,6 +54,7 @@ label {
 
 #dynmap-img {
     display: block; /* Ensures no gaps below the image */
+    user-select: none;
 }
 
 #grid {
