@@ -89,9 +89,18 @@ function squarePlot(plot) {
         const title = document.getElementById('plot-title');
         const description = document.getElementById('plot-description');
         const coords = document.getElementById('plot-coords');
+        const infoImage = document.getElementById('info-image'); // Get the image element
+        
         title.textContent = plot.title;
         description.innerHTML = plot.description;
         coords.textContent = `x: ${Math.round((x1 + x2)/2)}, z: ${Math.round((y1 + y2)/2)}`
+
+        if (plot.img) {
+            infoImage.src = plot.img;
+            infoImage.style.display = 'block'; // Ensure the image is visible
+        } else {
+            infoImage.style.display = 'none'; // Hide the image if no img field
+        }
     };
 
     const grid = document.getElementById('grid');
@@ -137,9 +146,18 @@ function circlePlot(plot) {
         const title = document.getElementById('plot-title');
         const description = document.getElementById('plot-description');
         const coords = document.getElementById('plot-coords');
+        const infoImage = document.getElementById('info-image'); // Get the image element
+        
         title.textContent = plot.title;
         description.innerHTML = plot.description;
         coords.textContent = `x: ${Math.round(x1)}, z: ${Math.round(z1)}`;
+
+        if (plot.img) {
+            infoImage.src = plot.img;
+            infoImage.style.display = 'block'; // Ensure the image is visible
+        } else {
+            infoImage.style.display = 'none'; // Hide the image if no img field
+        }
     };
 
     const grid = document.getElementById('grid');
