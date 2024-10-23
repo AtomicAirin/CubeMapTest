@@ -1,7 +1,6 @@
 // script.js
 let namesVisible = true; // Initialize toggle state
 let optionsVisible = true;
-let dynmapOpacity = 1.0;
 let plotsOpacity = 1.0;
 
 // Function to fetch the configuration from config.yaml
@@ -370,7 +369,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             document.getElementById('dynmap-img').style.opacity = dynmapOpacity;
         });
         document.getElementById('opacity-plots').addEventListener('input', function() {
-            const plotsOpacity = this.value;
+            plotsOpacity = this.value;
             console.log("Plots opacity updated " + plotsOpacity);
             const plots = document.querySelectorAll('.plot, .plot-circle, .plot-dot');
             plots.forEach(plot => {
