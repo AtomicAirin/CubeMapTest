@@ -303,6 +303,7 @@ function toggleNames() {
     plots.forEach(plot => {
         plot.style.fontSize = namesVisible ? '10px' : '0px'; // Adjust font size based on the state
     });
+    document.getElementById('toggle-names').style.border = namesVisible ? "#27db57 solid 2px" : "#f74343 solid 2px";
 }
 
 function toggleOptions() {
@@ -349,6 +350,17 @@ document.addEventListener('DOMContentLoaded', async () => {
             const selectedSector = event.target.options[event.target.selectedIndex].text;
             fetchPlots(selectedSector); // Fetch plots for the new sector
         });
+
+        // Listen for changes on the sliders
+        document.getElementById('opacity-dynmap').addEventListener('input', function() {
+            const opacityValue = this.value;
+            document.getElementById('dynmap-img').style.opacity = opacityValue;
+        });
+        document.getElementById('opacity-plots').addEventListener('input', function() {
+            const opacityValue = this.value;
+            document.getElementById('grid').style.opacity = opacityValue;
+        });
+        
         document.getElementById('options-button').addEventListener('click', toggleOptions);
         document.getElementById('toggle-names').addEventListener('click', toggleNames);
     });
