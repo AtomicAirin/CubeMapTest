@@ -35,7 +35,7 @@ plots:
     sector: "Sector 1"
     fillColor: "#dd00dd"
     borderColor: "#004d00"
-    shape: "circle"
+    shape: "dot"
     coordinates:
       - [0.5, 0.1]  # (x1, y1)
     radius: 0.03
