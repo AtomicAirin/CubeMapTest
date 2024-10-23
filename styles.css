@@ -349,6 +349,15 @@ label {
     display: inline-flex; /* Allow the container to shrink to fit the image */
     justify-content: center; /* Center the image horizontally */
     align-items: center; /* Center the image vertically */
+    opacity: 0; /* Start as hidden */
+    visibility: hidden; /* Initially hidden to prevent interaction */
+    transition: opacity 0.22s ease, visibility 0s ease 0.22s; /* Fade in/out effect */
+}
+
+#high-res-image-container.show {
+    opacity: 1; /* Fully visible */
+    visibility: visible; /* Make it visible for interaction */
+    transition: opacity 0.22s ease, visibility 0s; /* Reset visibility transition */
 }
 
 .image-padding {
