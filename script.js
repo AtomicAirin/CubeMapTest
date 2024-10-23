@@ -1,6 +1,8 @@
 // script.js
 let namesVisible = true; // Initialize toggle state
 let optionsVisible = true;
+let dynmapOpacity = 1.0;
+let plotsOpacity = 1.0;
 
 // Function to fetch the configuration from config.yaml
 async function fetchConfig() {
@@ -12,10 +14,11 @@ async function fetchConfig() {
     document.querySelector('.footer-item:nth-child(3)').textContent = `v${config.version}, updated ${config.last_updated}`;
 }
 
-function updatePlotNamesVisibility() {
+function enforcePlotSettings() {
     const plots = document.querySelectorAll('.plot, .plot-circle, .plot-dot');
     plots.forEach(plot => {
         plot.style.fontSize = namesVisible ? '10px' : '0px'; // Adjust font size based on the state
+        plot.style.opacity = plotsOpacity;
     });
 }
 
@@ -295,7 +298,8 @@ async function fetchPlots(currentSector) {
         }
     });
 
-    updatePlotNamesVisibility();
+    // Update plots as per settings
+    enforcePlotSettings();
 }
 
 function toggleNames() {
@@ -357,14 +361,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Listen for changes on the sliders
         document.getElementById('opacity-dynmap').addEventListener('input', function() {
-            const opacityValue = this.value;
-            document.getElementById('dynmap-img').style.opacity = opacityValue;
+            const dynmapOpacity = this.value;
+            document.getElementById('dynmap-img').style.opacity = dynmapOpacity;
         });
         document.getElementById('opacity-plots').addEventListener('input', function() {
-            const opacityValue = this.value;
+            const plotsOpacity = this.value;
             const plots = document.querySelectorAll('.plot, .plot-circle, .plot-dot');
             plots.forEach(plot => {
-                plot.style.opacity = opacityValue;
+                plot.style.opacity = plotsOpacity;
             });
         });
         
