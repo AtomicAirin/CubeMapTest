@@ -37,7 +37,7 @@ label {
 
 .link {
     color: #01d4fe; /* Light blue link color */
-    transition: all 0.24s ease;
+    transition: all 0.16s ease;
 }
 
 .link:hover {
@@ -274,7 +274,7 @@ input[type="range"]::-moz-range-thumb {
     padding: 10px;
     border-radius: 8px;
     box-shadow: 8px 8px 16px #101010, -8px -8px 16px #1c1c1c; /* Subtle shadow */
-    transition: all 0.18s ease;
+    transition: all 0.12s ease;
     border: 2px solid rgb(39, 219, 87);
     transform: scale(0);
     opacity: 0;
@@ -303,7 +303,7 @@ input[type="range"]::-moz-range-thumb {
     padding: 10px;
     border-radius: 8px;
     box-shadow: 8px 8px 16px #101010, -8px -8px 16px #1c1c1c; /* Subtle shadow */
-    transition: all 0.18s ease;
+    transition: all 0.12s ease;
     border: 2px solid rgb(247, 67, 67);
     transform: scale(0);
     opacity: 0;
@@ -333,7 +333,7 @@ input[type="range"]::-moz-range-thumb {
     border-radius: 8px;
     margin-top: 15px;
     box-shadow: 8px 8px 16px #101010, -8px -8px 16px #1c1c1c; /* Subtle shadow */
-    transition: all 0.18s ease;
+    transition: all 0.12s ease;
     border: #777 solid 2px; 
 }
 
@@ -401,13 +401,13 @@ input[type="range"]::-moz-range-thumb {
     align-items: center; /* Center the image vertically */
     opacity: 0; /* Start as hidden */
     visibility: hidden; /* Initially hidden to prevent interaction */
-    transition: opacity 0.22s ease, visibility 0s ease 0.22s; /* Fade in/out effect */
+    transition: opacity 0.15s ease, visibility 0s ease 0.15s; /* Fade in/out effect */
 }
 
 #high-res-image-container.show {
     opacity: 1; /* Fully visible */
     visibility: visible; /* Make it visible for interaction */
-    transition: opacity 0.22s ease, visibility 0s; /* Reset visibility transition */
+    transition: opacity 0.15s ease, visibility 0s; /* Reset visibility transition */
 }
 
 .image-padding {
@@ -435,7 +435,7 @@ input[type="range"]::-moz-range-thumb {
     color: #c8c8c8; /* Light text */
     padding: 5px 10px;
     border-radius: 8px;
-    transition: all 0.18s ease;
+    transition: all 0.15s ease;
     border: 2px solid #444;
     cursor: pointer;
     margin-top: 5px;
