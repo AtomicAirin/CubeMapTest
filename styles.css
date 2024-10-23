@@ -218,12 +218,13 @@ label {
 }
 
 .slider-label {
-    margin-top: 10px;
+    margin-top: 0px;
     font-size: 11px;
     margin-left: 2px;
     margin-bottom: -4px;
     color: #d8d8d8;
     opacity: 0;
+    transform: scale(0);
 }
 
 /* Slider container */
@@ -234,6 +235,8 @@ label {
     margin: 10px 5px 5px 5px;
     align-items: center;
     opacity: 0;
+    transform: scale(0);
+    margin-top: 0px;
 }
 
 /* Dark mode slider */
