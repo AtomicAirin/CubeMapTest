@@ -331,7 +331,7 @@ function waitForElement(selector, callback) {
             clearInterval(interval); // Stop checking once the element is found
             callback(element); // Call the callback function with the found element
         }
-    }, 100); // Check every 100 milliseconds
+    }, 10); // Check every 100 milliseconds
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
