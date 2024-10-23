@@ -255,7 +255,7 @@ function toggleOptions() {
             // Shrink to 0 size, hide by opacity, remove margin
             div.style.transform = 'scale(0)';
             div.style.opacity = '0';
-            div.style.marginTop = '0';
+            div.style.marginTop = '0px';
         } else {
             // Expand to full size, show with opacity, add margin
             div.style.transform = 'scale(1)';
