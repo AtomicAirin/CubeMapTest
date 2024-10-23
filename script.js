@@ -166,6 +166,7 @@ function dotPlot(plot) {
 
     const plotDiv = document.createElement('div');
     plotDiv.className = 'plot-dot';
+    plotDiv.style.border = `1px solid ${plot.borderColor}`;
     plotDiv.style.backgroundColor = `${plot.fillColor}9A`; // Dot fill color, slight opacity change
 
     // Get the image dimensions for correct positioning
