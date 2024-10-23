@@ -164,6 +164,53 @@ function circlePlot(plot) {
     grid.appendChild(plotDiv);
 }
 
+function dotPlot(plot) {
+    const [[x1, z1]] = plot.coordinates; // Center point for the dot
+
+    const plotDiv = document.createElement('div');
+    plotDiv.className = 'plot-dot';
+    plotDiv.style.position = 'absolute';
+    plotDiv.style.backgroundColor = `${plot.fillColor}`; // Dot fill color, no opacity change
+    plotDiv.style.width = '5px';
+    plotDiv.style.height = '5px';
+    plotDiv.style.borderRadius = '50%'; // Make it a circle
+
+    // Get the image dimensions for correct positioning
+    const dynmapImg = document.getElementById('dynmap-img');
+    const gridWidth = dynmapImg.naturalWidth;
+    const gridHeight = dynmapImg.naturalHeight;
+
+    // Position the dot at the center point (account for the dot's radius)
+    const left = (x1 * gridWidth) - 2.5; // Centering the 5px dot
+    const top = (z1 * gridHeight) - 2.5; // Centering the 5px dot
+
+    plotDiv.style.left = `${left}px`;
+    plotDiv.style.top = `${top}px`;
+
+    // Click event for showing description and image (if present)
+    plotDiv.onclick = () => {
+        const title = document.getElementById('plot-title');
+        const description = document.getElementById('plot-description');
+        const coords = document.getElementById('plot-coords');
+        const infoImage = document.getElementById('info-image'); // Get the image element
+
+        title.textContent = plot.title;
+        description.innerHTML = plot.description;
+        coords.textContent = `x: ${Math.round(x1)}, z: ${Math.round(z1)}`;
+
+        // Check if the img field exists in the plot
+        if (plot.img) {
+            infoImage.src = plot.img;
+            infoImage.style.display = 'block'; // Ensure the image is visible
+        } else {
+            infoImage.style.display = 'none'; // Hide the image if no img field
+        }
+    };
+
+    const grid = document.getElementById('grid');
+    grid.appendChild(plotDiv);
+}
+
 // Function to fetch the plots from plots.yaml
 async function fetchPlots(currentSector) {
     const response = await fetch('plots.yaml');
@@ -175,7 +222,7 @@ async function fetchPlots(currentSector) {
     
     // Remove all plotDivs while keeping the dynmap-img intact
     Array.from(grid.children).forEach(child => {
-        if (child.classList.contains('plot') || child.classList.contains('plot-circle')) {
+        if (child.classList.contains('plot') || child.classList.contains('plot-circle') || child.classList.contains('plot-dot')) {
             grid.removeChild(child);
         }
     });
@@ -188,6 +235,8 @@ async function fetchPlots(currentSector) {
             squarePlot(plot);
         } else if (plot.shape === 'circle') {
             circlePlot(plot);
+        } else if (plot.shape === 'dot') {
+            dotPlot(plot);
         }
     });
 }
