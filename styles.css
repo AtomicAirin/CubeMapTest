@@ -113,6 +113,32 @@ label {
     scale: 0.96;
 }
 
+.plot-dot {
+    position: absolute;
+    border-radius: 50%;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: all 0.12s ease-in-out;
+    font-size: 8px;
+    opacity: 0.85;
+    color: transparent;
+    height: 5px;
+    weight: 5px;
+}
+
+.plot-dot:hover {
+    opacity: 1.0;
+    font-size: 11px !important;
+    font-weight: 500;
+    text-shadow: 2px 2px 3px black;
+    color: white;
+}
+
+.plot-dot:active {
+    font-size: 10.5px !important;
+    scale: 0.96;
+}
+
 /* Plot info styling */
 #plot-info {
     background-color: #161616; /* Dark background */
