@@ -230,7 +230,7 @@ label {
     display: flex;
     position: relative;
     width: 100%;
-    margin: 10px 5px;
+    margin: 10px 5px 5px 5px;
     align-items: center;
 }
 
