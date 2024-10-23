@@ -223,10 +223,12 @@ label {
     color: #c8c8c8; /* Light text */
     padding: 10px;
     border-radius: 8px;
-    margin-top: 10px;
     box-shadow: 8px 8px 16px #101010, -8px -8px 16px #1c1c1c; /* Subtle shadow */
     transition: all 0.18s ease;
     border: #555 solid 2px; 
+    transform: scale(0);
+    opacity: 0;
+    margin-top: 0px;
 }
 
 #toggle-names:hover {
@@ -250,10 +252,12 @@ label {
     color: #c8c8c8; /* Light text */
     padding: 10px;
     border-radius: 8px;
-    margin-top: 15px;
     box-shadow: 8px 8px 16px #101010, -8px -8px 16px #1c1c1c; /* Subtle shadow */
     transition: all 0.18s ease;
     border: #555 solid 2px; 
+    transform: scale(0);
+    opacity: 0;
+    margin-top: 0px;
 }
 
 #toggle-name-scaling:hover {
