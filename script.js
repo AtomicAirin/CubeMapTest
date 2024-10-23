@@ -41,10 +41,10 @@ async function fetchSectors() {
     }
 
     // Change the dynmap image when a sector is selected
-    sectorDropdown.addEventListener('change', function() {
-        console.log("Line 45 Sector Image Load " + this.value);
-        loadSectorImage(this.value);
-    });
+    // sectorDropdown.addEventListener('change', function() {
+    //     console.log("Line 45 Sector Image Load " + this.value);
+    //     loadSectorImage(this.value);
+    // });
 
     // Optionally, load the initial sector image when the dropdown is first populated
     if (sectors.length > 0) {
@@ -359,6 +359,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Listen for changes on the dropdown
         sectorDropdown.addEventListener('change', (event) => {
             const selectedSector = event.target.options[event.target.selectedIndex].text;
+            console.log("Line 45 Sector Image Load " + this.value);
+            loadSectorImage(this.value);
             console.log("Running fetchPlots for " + selectedSector);
             fetchPlots(selectedSector); // Fetch plots for the new sector
         });
