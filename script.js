@@ -16,6 +16,7 @@ async function fetchConfig() {
 
 function enforcePlotSettings() {
     const plots = document.querySelectorAll('.plot, .plot-circle, .plot-dot');
+    console.log("Enforcing opacity " + plotsOpacity);
     plots.forEach(plot => {
         plot.style.fontSize = namesVisible ? '10px' : '0px'; // Adjust font size based on the state
         plot.style.opacity = plotsOpacity;
@@ -42,11 +43,13 @@ async function fetchSectors() {
 
     // Change the dynmap image when a sector is selected
     sectorDropdown.addEventListener('change', function() {
+        console.log("Line 45 Sector Image Load " + this.value);
         loadSectorImage(this.value);
     });
 
     // Optionally, load the initial sector image when the dropdown is first populated
     if (sectors.length > 0) {
+        console.log("Line 52 initialization");
         const initialSector = sectors[0];
         loadSectorImage(initialSector.url);
         fetchPlots(initialSector.name);
@@ -55,6 +58,7 @@ async function fetchSectors() {
 
 // Function to load the sector image and adjust the grid accordingly
 function loadSectorImage(imageUrl) {
+    console.log("loadSectorImage called");
     const dynmapImg = document.getElementById('dynmap-img');
     dynmapImg.src = imageUrl;
 
@@ -356,6 +360,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Listen for changes on the dropdown
         sectorDropdown.addEventListener('change', (event) => {
             const selectedSector = event.target.options[event.target.selectedIndex].text;
+            console.log("Running fetchPlots for " + selectedSector);
             fetchPlots(selectedSector); // Fetch plots for the new sector
         });
 
@@ -366,6 +371,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
         document.getElementById('opacity-plots').addEventListener('input', function() {
             const plotsOpacity = this.value;
+            console.log("Plots opacity updated " + plotsOpacity);
             const plots = document.querySelectorAll('.plot, .plot-circle, .plot-dot');
             plots.forEach(plot => {
                 plot.style.opacity = plotsOpacity;
