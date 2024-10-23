@@ -217,6 +217,14 @@ label {
     margin-top: auto;
 }
 
+.slider-label {
+    margin-top: 10px;
+    font-size: 11px;
+    margin-left: 2px;
+    margin-bottom: -4px;
+    color: #d8d8d8;
+}
+
 /* Slider container */
 .slider-container {
     display: flex;
