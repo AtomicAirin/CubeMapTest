@@ -242,7 +242,7 @@ async function fetchPlots(currentSector) {
 }
 
 function toggleNames() {
-    const plots = document.querySelectorAll('.plot');
+    const plots = document.querySelectorAll('.plot, .plot-circle, .plot-dot');
     plots.forEach(plot => {
         const currentSize = window.getComputedStyle(plot).fontSize;
         plot.style.fontSize = (currentSize === '10px') ? '0px' : '10px';
