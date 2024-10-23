@@ -223,6 +223,7 @@ label {
     margin-left: 2px;
     margin-bottom: -4px;
     color: #d8d8d8;
+    opacity: 0;
 }
 
 /* Slider container */
@@ -232,6 +233,7 @@ label {
     width: 100%;
     margin: 10px 5px 5px 5px;
     align-items: center;
+    opacity: 0;
 }
 
 /* Dark mode slider */
