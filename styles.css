@@ -203,17 +203,71 @@ label {
     margin-top: 15px;
     box-shadow: 8px 8px 16px #101010, -8px -8px 16px #1c1c1c; /* Subtle shadow */
     transition: all 0.18s ease;
-    border: #777 solid 2px; 
+    border: #555 solid 2px; 
 }
 
 #toggle-names:hover {
+    background-color: #121212;
+    box-shadow: 8px 8px 16px #0d0d0d, -8px -8px 16px #171717;
+    border: #333 solid 2px;
+    color: #d8d8d8;
+}
+
+#toggle-names:active {
+    background-color: #111111;
+    box-shadow: 8px 8px 16px #0d0d0d, -8px -8px 16px #171717;
+    font-size: 10px;
+    color: #a9a9a9;
+}
+
+#toggle-name-scaling {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    background-color: #161616; /* Dark background */
+    color: #c8c8c8; /* Light text */
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 15px;
+    box-shadow: 8px 8px 16px #101010, -8px -8px 16px #1c1c1c; /* Subtle shadow */
+    transition: all 0.18s ease;
+    border: #555 solid 2px; 
+}
+
+#toggle-name-scaling:hover {
+    background-color: #121212;
+    box-shadow: 8px 8px 16px #0d0d0d, -8px -8px 16px #171717;
+    border: #333 solid 2px;
+    color: #d8d8d8;
+}
+
+#toggle-name-scaling:active {
+    background-color: #111111;
+    box-shadow: 8px 8px 16px #0d0d0d, -8px -8px 16px #171717;
+    font-size: 10px;
+    color: #a9a9a9;
+}
+
+#options-button {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    background-color: #161616; /* Dark background */
+    color: #c8c8c8; /* Light text */
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 15px;
+    box-shadow: 8px 8px 16px #101010, -8px -8px 16px #1c1c1c; /* Subtle shadow */
+    transition: all 0.18s ease;
+    border: #777 solid 2px; 
+}
+
+#options-button:hover {
     background-color: #121212;
     box-shadow: 8px 8px 16px #0d0d0d, -8px -8px 16px #171717;
     border: #444 solid 2px;
     color: #d8d8d8;
 }
 
-#toggle-names:active {
+#options-button:active {
     background-color: #111111;
     box-shadow: 8px 8px 16px #0d0d0d, -8px -8px 16px #171717;
     font-size: 10px;
