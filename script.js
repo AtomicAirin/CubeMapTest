@@ -174,14 +174,16 @@ function dotPlot(plot) {
     const gridHeight = dynmapImg.naturalHeight;
 
     // Position the dot at the center point (account for the dot's radius)
-    const left = (x1 * gridWidth) - 2.5; // Centering the 5px dot
-    const top = (z1 * gridHeight) - 2.5; // Centering the 5px dot
+    const left = (x1 * gridWidth) - 3.5; // Centering the 5px dot
+    const top = (z1 * gridHeight) - 3.5; // Centering the 5px dot
 
     plotDiv.style.left = `${left}px`;
     plotDiv.style.top = `${top}px`;
 
-    plotDiv.textContent = plot.title;
-
+    const plotText = document.createElement('span');
+    plotText.textContent = plot.title;
+    plotDiv.appendChild(plotText);
+    
     // Click event for showing description and image (if present)
     plotDiv.onclick = () => {
         const title = document.getElementById('plot-title');
