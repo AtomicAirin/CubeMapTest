@@ -55,9 +55,9 @@ function loadSectorImage(imageUrl) {
     dynmapImg.src = imageUrl;
 
     // Ensure plots are correctly aligned when the image is loaded
-    dynmapImg.onload = function() {
-        fetchPlots(document.getElementById('sector-dropdown').selected[0].textContent);
-    };
+    // dynmapImg.onload = function() {
+    //     fetchPlots(document.getElementById('sector-dropdown').selected[0].textContent);
+    // };
 }
 
 function squarePlot(plot) {
