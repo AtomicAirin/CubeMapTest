@@ -1,6 +1,6 @@
 // script.js
 let namesVisible = true; // Initialize toggle state
-let optionsVisible = false;
+let optionsVisible = true;
 
 // Function to fetch the configuration from config.yaml
 async function fetchConfig() {
