@@ -170,7 +170,7 @@ function dotPlot(plot) {
     const plotDiv = document.createElement('div');
     plotDiv.className = 'plot-dot';
     plotDiv.style.position = 'absolute';
-    plotDiv.style.backgroundColor = `${plot.fillColor}`; // Dot fill color, no opacity change
+    plotDiv.style.backgroundColor = `${plot.fillColor}9A`; // Dot fill color, slight opacity change
     plotDiv.style.width = '5px';
     plotDiv.style.height = '5px';
     plotDiv.style.borderRadius = '50%'; // Make it a circle
