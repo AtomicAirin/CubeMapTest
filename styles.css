@@ -79,7 +79,7 @@ label {
 }
 
 .plot:hover {
-    opacity: 1.0;
+    opacity: 1.0 !important;
     font-size: 11px !important;
     font-weight: 500;
     text-shadow: 2px 2px 3px black;
@@ -103,7 +103,7 @@ label {
 }
 
 .plot-circle:hover {
-    opacity: 1.0;
+    opacity: 1.0 !important;
     font-size: 11px !important;
     font-weight: 500;
     text-shadow: 2px 2px 3px black;
@@ -141,7 +141,7 @@ label {
 }
 
 .plot-dot:hover {
-    opacity: 1.0;
+    opacity: 1.0 !important;
     font-size: 11px !important;
     font-weight: 500;
     text-shadow: 2px 2px 3px black;
@@ -151,7 +151,7 @@ label {
 .plot-dot:hover span {
     font-size: 11px;
     font-weight: 500;
-    opacity: 1;
+    opacity: 1 !important;
 }
 
 .plot-dot:active {
