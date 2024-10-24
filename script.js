@@ -359,10 +359,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Listen for changes on the dropdown
         sectorDropdown.addEventListener('change', (event) => {
             const selectedSector = event.target.options[event.target.selectedIndex].text;
-            console.log("Line 45 Sector Image Load " + this.value);
-            loadSectorImage(this.value);
-            console.log("Running fetchPlots for " + selectedSector);
-            fetchPlots(selectedSector); // Fetch plots for the new sector
+            console.log("Line 45 Sector Image Load " + event.target.value);
+            loadSectorImage(event.target.value);
+            console.log("Running fetchPlots for " + event.target.options[event.target.selectedIndex].text);
+            fetchPlots(event.target.options[event.target.selectedIndex].text); // Fetch plots for the new sector
         });
 
         // Listen for changes on the sliders
@@ -378,7 +378,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 plot.style.opacity = plotsOpacity;
             });
         });
-        
+        document.getElementById('opacity-dynmap').value = 1;
+        document.getElementById('opacity-plots').value = 1;
         document.getElementById('options-button').addEventListener('click', toggleOptions);
         document.getElementById('toggle-names').addEventListener('click', toggleNames);
         document.getElementById('close-image').addEventListener('click', closeImage);
