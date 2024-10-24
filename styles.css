@@ -193,6 +193,35 @@ label {
     cursor: pointer;
 }
 
+#warp-button {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    background-color: #161616; /* Dark background */
+    color: #c8c8c8; /* Light text */
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 8px 8px 16px #101010, -8px -8px 16px #1c1c1c; /* Subtle shadow */
+    transition: all 0.12s ease;
+    border: 2px solid #017f98;
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#warp-button:hover {
+    background-color: #121212;
+    box-shadow: 8px 8px 16px #0d0d0d, -8px -8px 16px #171717;
+    border: #01d4fe solid 2px !important;
+    color: #d8d8d8;
+}
+
+#warp-button:active {
+    background-color: #111111;
+    box-shadow: 8px 8px 16px #0d0d0d, -8px -8px 16px #171717;
+    font-size: 10px;
+    color: #a9a9a9;
+}
+
 #plot-coords {
     color: #c8c8c8;
     font-size: 13.5px;
