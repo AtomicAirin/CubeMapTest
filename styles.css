@@ -68,6 +68,8 @@ label {
 
 /* Plot styling */
 .plot {
+    min-height: 7px;
+    min-width: 7px;
     position: absolute;
     border: 2px solid #ffffff; /* Light border for plots */
     cursor: pointer;
@@ -91,6 +93,8 @@ label {
 }
 
 .plot-circle {
+    min-height: 7px;
+    min-width: 7px;
     position: absolute;
     border-radius: 50%;
     border: 2px solid #ffffff; /* Light border for plots */
