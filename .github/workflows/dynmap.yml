@@ -2,8 +2,8 @@ name: Dynmap Automation
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 * * * *'
+  # schedule:
+  #   - cron: '0 * * * *'
 
 jobs:
   update-dynmap-images:
